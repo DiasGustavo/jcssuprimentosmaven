@@ -1,0 +1,122 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package jcssuprimentosmaven.domain;
+
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
+
+
+
+@Entity
+@Table(name = "tbl_juiz")
+@NamedQueries({
+    @NamedQuery(name = "Juiz.listar", query = "SELECT juiz FROM Juiz juiz"),
+    @NamedQuery(name = "Juiz.buscarPorCodigo", query = "SELECT juiz FROM Juiz juiz WHERE juiz.id = :codigo")
+})
+public class Juiz implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cod_juiz")
+    private Long id;
+    
+    @NotEmpty(message = "o campo login é obrigatório")
+    @Size(min=1, max=50, message = "O login tem que ter entre 1 e 20 caracteres") 
+    @Column(name = "login", length = 20)
+    private String login;
+    
+    @NotEmpty(message = "o campo senha é obrigatório")
+    @Size(min=1, max=50, message = "A senha tem que ter entre 1 e 10 caracteres")
+    @Column(name = "senha", length = 10)
+    private String senha;
+    
+    @Email(message = "Email informado não é válido")
+    @Column(name = "email", length = 60)
+    private String email;    
+    
+    @Column(name = "status", length = 10)
+    private String status;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Juiz{" + "id=" + id + ", login=" + login + ", senha=" + senha + ", email=" + email + ", status=" + status + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Juiz other = (Juiz) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+}

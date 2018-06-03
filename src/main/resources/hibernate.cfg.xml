@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_jcssuprimentos</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">java1203</property>
+        <property name="hibernate.connection.pool_size">10</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+    
+        <mapping class="jcssuprimentosmaven.domain.Juiz"/>
+        <mapping class="jcssuprimentosmaven.domain.Jogador"/>
+        <mapping class="jcssuprimentosmaven.domain.Transportadora"/>
+        <mapping class="jcssuprimentosmaven.domain.Fornecedor"/>
+        <mapping class="jcssuprimentosmaven.domain.MeioTransporte"/>
+        <mapping class="jcssuprimentosmaven.domain.MateriaPrima"/>
+        <mapping class="jcssuprimentosmaven.domain.Mensagem"/>
+        <mapping class="jcssuprimentosmaven.domain.Rodada"/>
+        <mapping class="jcssuprimentosmaven.domain.Empresa"/>
+        <mapping class="jcssuprimentosmaven.domain.Investimento"/>
+    
+    </session-factory>
+</hibernate-configuration>
