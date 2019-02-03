@@ -51,7 +51,7 @@ public class TransportadoraDAOTest {
      * Test of buscarPorCodigo method, of class TransportadoraDAO.
      */
     @Test
-    
+    @Ignore
     public void testBuscarPorCodigo() {
         TransportadoraDAO tdao = new TransportadoraDAO();
         Transportadora transportadora = tdao.buscarPorCodigo(1L);

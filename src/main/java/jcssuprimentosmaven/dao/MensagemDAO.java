@@ -61,6 +61,38 @@ public class MensagemDAO {
         return mensagem;
     }
     
+    
+    public List<Mensagem> buscarPorDestinatario (String nomeInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Mensagem> mensagens = null;
+        try{
+            Query consulta = sessao.getNamedQuery("Mensagem.buscarPorDestinatario");
+            consulta.setString("nome", nomeInformado);
+            consulta.setString("nomeGeral", "todos");
+            mensagens = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return mensagens;
+    }
+    
+    public List<Mensagem> buscarPorRemetente (String nomeInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Mensagem> mensagens = null;
+        try{
+            Query consulta = sessao.getNamedQuery("Mensagem.buscarPorRemetente");
+            consulta.setString("nome", nomeInformado);
+            mensagens = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return mensagens;
+    }
+    
     public void editar(Mensagem mensagem){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         Transaction transacao = null;

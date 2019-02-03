@@ -5,10 +5,12 @@
  */
 package jcssuprimentosmaven.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import jcssuprimentosmaven.domain.Empresa;
+import jcssuprimentosmaven.domain.Fabrica;
 import jcssuprimentosmaven.domain.Transportadora;
 import jcssuprimentosmaven.domain.Fornecedor;
 import jcssuprimentosmaven.domain.Jogador;
@@ -28,18 +30,18 @@ public class EmpresaDAOTest {
      * Test of salvar method, of class EmpresaDAO.
      */
     @Test
-    
+    @Ignore
     public void testSalvar() {
         Empresa empresa = new Empresa();
         empresa.setNomeFantasia("Primeira Empresa");
         
         TransportadoraDAO tdao = new TransportadoraDAO();
         Transportadora transportadora = tdao.buscarPorCodigo(1L);
-        empresa.setTransportadora(transportadora);
+        //empresa.setTransportadora(transportadora);
         
         FornecedorDAO fdao = new FornecedorDAO();
         Fornecedor fornecedor = fdao.buscarPorCodigo(1L);
-        empresa.setFornecedor(fornecedor);
+        //empresa.setFornecedor(fornecedor);
         
         JogadorDAO jdao = new JogadorDAO();
         Jogador jogador = jdao.buscarPorCodigo(1L);
@@ -49,7 +51,14 @@ public class EmpresaDAOTest {
         
         RodadaDAO rdao = new RodadaDAO();
         Rodada rodada = rdao.buscarPorCodigo(1L);
-        empresa.setRodada(rodada);
+        //empresa.setRodada(rodada);
+        
+        FabricaDAO fbdao = new FabricaDAO();
+        Fabrica fabrica = fbdao.buscarPorCodigo(1L);
+        //empresa.setFabrica(fabrica);
+        
+        //empresa.setPrecoCusto(BigDecimal.ZERO);
+        //empresa.setPrecoVenda(BigDecimal.ZERO);
         
         EmpresaDAO edao = new EmpresaDAO();
         edao.salvar(empresa);

@@ -43,14 +43,14 @@ public class JuizDAOTest {
      * Test of salvar method, of class JuizDAO.
      */
     @Test
-    
+    @Ignore
     public void testSalvar() {
         System.out.println("salvar");
         Juiz juiz = new Juiz();
         juiz.setEmail("juiz@gmail.com");
         juiz.setLogin("juiz2");
         juiz.setSenha("12345678");
-        juiz.setStatus("A");
+        juiz.setStatus(0);
         JuizDAO instance = new JuizDAO();
         instance.salvar(juiz);
         

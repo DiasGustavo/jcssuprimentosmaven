@@ -6,6 +6,7 @@
 package jcssuprimentosmaven.dao;
 import java.util.List;
 import jcssuprimentosmaven.domain.Empresa;
+import jcssuprimentosmaven.domain.Jogador;
 import jcssuprimentosmaven.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -15,12 +16,13 @@ import org.hibernate.Transaction;
  * @author Gustavo
  */
 public class EmpresaDAO {
-    public void salvar(Empresa empresa){
+    public Long salvar(Empresa empresa){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         Transaction transacao = null;
+        Long codigo = null;
         try{
             transacao = sessao.beginTransaction();
-            sessao.save(empresa);
+            codigo = (Long)sessao.save(empresa);
             transacao.commit();
         }catch(RuntimeException ex){
             if(transacao != null){
@@ -29,6 +31,7 @@ public class EmpresaDAO {
         }finally{
             sessao.close();
         }
+        return codigo;
     }
     
     public List<Empresa> listar(){
@@ -37,6 +40,38 @@ public class EmpresaDAO {
         
         try{
             Query consulta = sessao.getNamedQuery("Empresa.listar");
+            listaEmpresas = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaEmpresas;
+    }
+    
+    public List<Empresa> buscarPorNome(String nomeInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Empresa> listaEmpresas = null;
+        
+        try{
+            Query consulta = sessao.getNamedQuery("Empresa.buscarPorNome");
+            consulta.setString("nome", nomeInformado);
+            listaEmpresas = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaEmpresas;
+    }
+    
+     public List<Empresa> buscarPorJogador(Jogador jogadorInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Empresa> listaEmpresas = null;
+        
+        try{
+            Query consulta = sessao.getNamedQuery("Empresa.buscarPorJogador");
+            consulta.setLong("jogador", jogadorInformado.getId());
             listaEmpresas = consulta.list();
         }catch(RuntimeException ex){
             throw ex;

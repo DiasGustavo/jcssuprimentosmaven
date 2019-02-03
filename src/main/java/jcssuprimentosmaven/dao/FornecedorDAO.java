@@ -6,6 +6,7 @@
 package jcssuprimentosmaven.dao;
 
 import java.util.List;
+import jcssuprimentosmaven.domain.Empresa;
 import jcssuprimentosmaven.domain.Fornecedor;
 import jcssuprimentosmaven.util.HibernateUtil;
 import org.hibernate.Query;
@@ -61,6 +62,36 @@ public class FornecedorDAO {
             sessao.close();
         }
         return fornecedor;
+    }
+    
+    public List<Fornecedor> buscarPorNome(String nomeInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Fornecedor> listaFornecedores = null;
+        try{
+            Query consulta = sessao.getNamedQuery("Fornecedor.buscarPorNome");
+            consulta.setString("nome", nomeInformado);
+            listaFornecedores = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaFornecedores;
+    }
+    
+    public List<Fornecedor> buscarPorEmpresa(Empresa empresaInformada){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Fornecedor> listaFornecedores = null;
+        try{
+            Query consulta = sessao.getNamedQuery("Fornecedor.buscarPorEmpresa");
+            consulta.setLong("empresa", empresaInformada.getId());
+            listaFornecedores = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaFornecedores;
     }
     
     public void editar(Fornecedor fornecedor){

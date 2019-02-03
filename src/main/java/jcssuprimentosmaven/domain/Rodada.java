@@ -10,12 +10,9 @@ import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -62,11 +59,6 @@ public class Rodada implements Serializable {
     @Column(name = "carga_ferroviaria")
     private int cargaFerroviaria;
     
-    @NotNull(message = "O campo Juiz é obrigatória")
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "fk_juiz", referencedColumnName = "cod_juiz", nullable = false)
-    private Juiz juiz;
-
     public Long getId() {
         return id;
     }
@@ -115,17 +107,9 @@ public class Rodada implements Serializable {
         this.cargaFerroviaria = cargaFerroviaria;
     }
 
-    public Juiz getJuiz() {
-        return juiz;
-    }
-
-    public void setJuiz(Juiz juiz) {
-        this.juiz = juiz;
-    }
-
     @Override
     public String toString() {
-        return "Rodada{" + "id=" + id + ", dataInicio=" + dataInicio + ", dataFim=" + dataFim + ", demanda=" + demanda + ", cargaRodoviaria=" + cargaRodoviaria + ", cargaFerroviaria=" + cargaFerroviaria + ", juiz=" + juiz + '}';
+        return "Rodada: " + id + ", dataInicio=" + dataInicio + ", dataFim=" + dataFim;
     }
 
     @Override

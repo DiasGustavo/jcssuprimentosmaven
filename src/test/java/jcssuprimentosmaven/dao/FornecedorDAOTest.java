@@ -24,7 +24,7 @@ public class FornecedorDAOTest {
      * Test of salvar method, of class FornecedorDAO.
      */
     @Test
-    
+    @Ignore
     public void testSalvar() {
         Fornecedor fornecedor = new Fornecedor();
         fornecedor.setFantasia("FornecedorCompleto");

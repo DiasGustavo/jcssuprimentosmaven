@@ -8,14 +8,20 @@ package jcssuprimentosmaven.domain;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import jcssuprimentosmaven.converter.EmpresaConverter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -26,7 +32,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "tbl_transportadora")
 @NamedQueries({
     @NamedQuery(name = "Transportadora.listar", query = "SELECT transportadora FROM Transportadora transportadora"),
-    @NamedQuery(name = "Transportadora.buscarPorCodigo" , query = "SELECT transportadora FROM Transportadora transportadora WHERE transportadora.id = :codigo")
+    @NamedQuery(name = "Transportadora.buscarPorCodigo" , query = "SELECT transportadora FROM Transportadora transportadora WHERE transportadora.id = :codigo"),
+    @NamedQuery(name = "Transportadora.buscarPorNome", query = "SELECT transportadora FROM Transportadora transportadora WHERE transportadora.nomeFantasia =:nome")
 })
 public class Transportadora implements Serializable {
     @Id
@@ -38,6 +45,13 @@ public class Transportadora implements Serializable {
     @Size(min=1, max=50, message = "o nome fantasia tem que ter entre 1 e 50 caracteres") 
     @Column(name = "fantasia", length = 50)
     private String nomeFantasia;
+    
+    @ElementCollection
+    @Convert(converter = EmpresaConverter.class, attributeName = "fk_empresa")
+    //@NotEmpty(message = "O campo fornecedor é obrigatório")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fk_empresa", referencedColumnName = "cod_empresa", nullable = false)
+    private Empresa empresa;
 
     public Long getId() {
         return id;
@@ -55,9 +69,25 @@ public class Transportadora implements Serializable {
         this.nomeFantasia = nomeFantasia;
     }
 
+    public String getNomeFantasia() {
+        return nomeFantasia;
+    }
+
+    public void setNomeFantasia(String nomeFantasia) {
+        this.nomeFantasia = nomeFantasia;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }   
+
     @Override
     public String toString() {
-        return "Transportadora{" + "id=" + id + ", Nome Fantasia=" + nomeFantasia + '}';
+        return id + ". " + nomeFantasia;
     }
 
     @Override

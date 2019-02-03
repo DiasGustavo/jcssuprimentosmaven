@@ -1,0 +1,322 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package jcssuprimentosmaven.view;
+
+import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.util.*;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import jcssuprimentosmaven.dao.FabricaDAO;
+import jcssuprimentosmaven.domain.Fabrica;
+import jcssuprimentosmaven.domain.Investimento;
+import jcssuprimentosmaven.domain.Jogador;
+import jcssuprimentosmaven.util.ViewUtil;
+
+/**
+ *
+ * @author Gustavo
+ */
+public class ViewDadosInvestimento extends javax.swing.JInternalFrame {
+
+    private List empresas;
+    /**
+     * Creates new form ViewDadosJuiz
+     */
+    private String acao;
+    private Investimento investimento;
+    private boolean error = false;
+    private Jogador jogador;
+    /* para carregar o enum no combobox tem que editar a propriedade
+     *  Model na guia propriedades e adicionar new javax.swing.DefaultComboBoxModel(StatusEnum.values())
+     */
+
+    public ViewDadosInvestimento(Jogador jogador) {
+        initComponents();
+        this.jogador = jogador;
+        FabricaDAO edao = new FabricaDAO();
+        this.setEmpresas(edao.listar());//recupera as fábricas do participante
+        DefaultComboBoxModel defaultComboBoxModel = new DefaultComboBoxModel(this.getEmpresas().toArray());
+        this.getCbEmpresa().setModel(defaultComboBoxModel);  
+        logo.setIcon(new javax.swing.ImageIcon(".\\imagem\\investimento_icon.png"));
+    }
+
+   
+    public String getAcao() {
+        return acao;
+    }
+
+    public void setAcao(String acao) {
+        this.acao = acao;
+    }
+
+    public List getEmpresas() {
+        return empresas;
+    }
+
+    public void setEmpresas(List empresas) {
+        this.empresas = empresas;
+    }
+
+    public JComboBox getCbEmpresa() {
+        return cbFabrica;
+    }
+
+    public void setCbEmpresa(JComboBox cbEmpresa) {
+        this.cbFabrica = cbEmpresa;
+    }
+    
+    
+
+    public Investimento preencherInvestimento() {
+        
+        investimento.setDescricao((String)this.cbInvestimento.getSelectedItem());
+        investimento.setValor(new BigDecimal(this.jtxValor.getText()));
+        investimento.setFabrica((Fabrica) this.cbFabrica.getSelectedItem());
+        
+
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        Set<ConstraintViolation<Investimento>> constraintViolation = validator.validate(investimento);
+
+        if (!constraintViolation.isEmpty()) {
+            String mensagem = "";
+            for (ConstraintViolation<Investimento> erro : constraintViolation) {
+                mensagem += erro.getMessage() + "\n";
+                ViewUtil.addMsgErro(mensagem);
+            }
+            this.error = true;
+        }
+
+        return investimento;
+    }
+
+    public void exibirInvestimento(Investimento investimento) {
+        this.limparCampos();
+        //if (juiz != null) {
+            this.cbInvestimento.setSelectedItem(investimento.getDescricao());
+            this.jtxValor.setText(investimento.getValor().toEngineeringString());
+            this.cbFabrica.setSelectedItem(investimento.getFabrica());
+        //} 
+    }
+
+    public void bGravarAddActionListener(ActionListener ouvinte) {
+        bGravar.addActionListener(ouvinte);
+    }
+
+    public void bEditarAddActionListener(ActionListener ouvinte) {
+        bEditar.addActionListener(ouvinte);
+    }
+
+    public void bExcluirAddActionListener(ActionListener ouvinte) {
+        bExcluir.addActionListener(ouvinte);
+    }
+
+    public boolean getErro() {
+        return this.error;
+    }
+
+    public void setError(boolean valor) {
+        this.error = valor;
+    }
+
+    public Investimento getInvestimento() {
+        return investimento;
+    }
+
+    public void setInvestimento(Investimento investimento) {
+        this.investimento = investimento;
+    }
+
+    
+
+    public void limparCampos() {
+        this.cbInvestimento.setSelectedIndex(0);
+        this.jtxValor.setText(null);
+        //this.cbFabrica.setSelectedIndex(0);
+    }
+
+    public void setPosicao() {
+        Dimension d = this.getDesktopPane().getSize();
+        this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
+
+    public int pedirConfirmacao(String mensagem, String titulo, int tipo) {
+        int resposta = JOptionPane.showConfirmDialog(null, mensagem, titulo, tipo);
+        return resposta;
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        pDadosJuiz = new javax.swing.JPanel();
+        lValor = new javax.swing.JLabel();
+        lFabrica = new javax.swing.JLabel();
+        jtxValor = new javax.swing.JTextField();
+        cbFabrica = new javax.swing.JComboBox();
+        bNovo = new javax.swing.JButton();
+        bCancelar = new javax.swing.JButton();
+        bExcluir = new javax.swing.JButton();
+        bGravar = new javax.swing.JButton();
+        bEditar = new javax.swing.JButton();
+        lDescricao = new javax.swing.JLabel();
+        cbInvestimento = new javax.swing.JComboBox();
+        logo = new javax.swing.JLabel();
+
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Cadastro - Investimento");
+
+        pDadosJuiz.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Investimento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+
+        lValor.setText("Valor");
+
+        lFabrica.setText("Fábrica");
+
+        cbFabrica.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione..." }));
+
+        bNovo.setText("Novo");
+        bNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bNovoActionPerformed(evt);
+            }
+        });
+
+        bCancelar.setText("Cancelar");
+        bCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCancelarActionPerformed(evt);
+            }
+        });
+
+        bExcluir.setText("Excluir");
+
+        bGravar.setText("Gravar");
+
+        bEditar.setText("Editar");
+
+        lDescricao.setText("Descrição");
+
+        cbInvestimento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione...", "Melhoria", "Propaganda", "Política de Meio Ambiente", "Pesquisa" }));
+
+        javax.swing.GroupLayout pDadosJuizLayout = new javax.swing.GroupLayout(pDadosJuiz);
+        pDadosJuiz.setLayout(pDadosJuizLayout);
+        pDadosJuizLayout.setHorizontalGroup(
+            pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDadosJuizLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pDadosJuizLayout.createSequentialGroup()
+                        .addComponent(bNovo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bGravar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bExcluir)
+                        .addContainerGap(57, Short.MAX_VALUE))
+                    .addGroup(pDadosJuizLayout.createSequentialGroup()
+                        .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lValor)
+                            .addComponent(lDescricao)
+                            .addComponent(lFabrica))
+                        .addGap(31, 31, 31)
+                        .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxValor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbFabrica, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbInvestimento, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        pDadosJuizLayout.setVerticalGroup(
+            pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDadosJuizLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lDescricao)
+                    .addComponent(cbInvestimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lValor)
+                    .addComponent(jtxValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lFabrica)
+                    .addComponent(cbFabrica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bNovo)
+                    .addComponent(bCancelar)
+                    .addComponent(bExcluir)
+                    .addComponent(bGravar)
+                    .addComponent(bEditar)))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(pDadosJuiz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pDadosJuiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void bNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNovoActionPerformed
+        // TODO add your handling code here:
+        limparCampos();
+        investimento = new Investimento();
+    }//GEN-LAST:event_bNovoActionPerformed
+
+    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_bCancelarActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    protected javax.swing.JButton bCancelar;
+    protected javax.swing.JButton bEditar;
+    protected javax.swing.JButton bExcluir;
+    protected javax.swing.JButton bGravar;
+    protected javax.swing.JButton bNovo;
+    private javax.swing.JComboBox cbFabrica;
+    private javax.swing.JComboBox cbInvestimento;
+    private javax.swing.JTextField jtxValor;
+    private javax.swing.JLabel lDescricao;
+    private javax.swing.JLabel lFabrica;
+    private javax.swing.JLabel lValor;
+    private javax.swing.JLabel logo;
+    private javax.swing.JPanel pDadosJuiz;
+    // End of variables declaration//GEN-END:variables
+}

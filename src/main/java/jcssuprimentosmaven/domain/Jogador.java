@@ -27,13 +27,20 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "tbl_jogador")
 @NamedQueries({
     @NamedQuery(name = "Jogador.listar", query = "SELECT jogador FROM Jogador jogador"),
-    @NamedQuery(name = "Jogador.buscarPorCodigo", query = "SELECT jogador FROM Jogador jogador WHERE jogador.id = :codigo" )
+    @NamedQuery(name = "Jogador.buscarPorCodigo", query = "SELECT jogador FROM Jogador jogador WHERE jogador.id = :codigo" ),
+    @NamedQuery(name = "Jogador.buscarPorNome", query = "SELECT jogador FROM Jogador jogador WHERE jogador.nome = :nome"),
+    @NamedQuery(name = "Jogador.autenticarUsuario", query = "SELECT jogador FROM Jogador jogador WHERE jogador.login = :login AND jogador.funcao = :funcao AND jogador.senha = :senha")
 })
 public class Jogador implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//utilizando esta opção para gerar os id de forma autoincremento
     @Column(name = "cod_jogador")
     private Long id;
+    
+    @NotEmpty(message = "o campo nome é obrigatório")
+    @Size(min=1, max=50, message = "O nome tem que ter entre 1 e 80 caracteres") 
+    @Column(name = "nome", length = 80)
+    private String nome;
     
     @NotEmpty(message = "o campo login é obrigatório")
     @Size(min=1, max=50, message = "O login tem que ter entre 1 e 20 caracteres") 
@@ -49,8 +56,11 @@ public class Jogador implements Serializable {
     @Column(name = "email", length = 60)
     private String email;    
     
-    @Column(name = "status", length = 10)
-    private String status;
+    @Column(name = "status")
+    private int status;
+    
+    @Column(name = "funcao")
+    private int funcao;
 
     public Long getId() {
         return id;
@@ -84,17 +94,34 @@ public class Jogador implements Serializable {
         this.email = email;
     }
 
-    public String getStatus() {
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
+    public int getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(int funcao) {
+        this.funcao = funcao;
+    }
+    
+
     @Override
     public String toString() {
-        return "Jogador{" + "id=" + id + ", login=" + login + ", senha=" + senha + ", email=" + email + ", status=" + status + '}';
+        return id + ". " +  nome + ", login: " + login ;
     }
 
     @Override

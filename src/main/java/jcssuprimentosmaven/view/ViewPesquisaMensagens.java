@@ -1,0 +1,319 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package jcssuprimentosmaven.view;
+
+import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
+import java.util.Iterator;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import jcssuprimentosmaven.domain.Jogador;
+import jcssuprimentosmaven.domain.Mensagem;
+import jcssuprimentosmaven.ouvinte.OuvinteViewDadosMensagem;
+
+import jcssuprimentosmaven.util.ViewUtil;
+
+/**
+ *
+ * @author Gustavo
+ */
+public class ViewPesquisaMensagens extends javax.swing.JInternalFrame {
+
+    private ViewDadosMensagem viewDadosMensagem;
+    private List mensagens;
+    private Jogador jogador;
+
+    /**
+     * Creates new form ViewPesquisaJuiz
+     */
+    public ViewPesquisaMensagens() {
+        initComponents();
+    }
+
+    public ViewPesquisaMensagens(Jogador jogador) {
+        this.jogador = jogador;
+        initComponents();
+    }
+
+    public void setPosicao() {
+        Dimension d = this.getDesktopPane().getSize();
+        this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
+
+    private void abrirViewDadosMensagem(Mensagem mensagem, String acao) {
+        //if (viewDadosMensagem == null) {
+            viewDadosMensagem = new ViewDadosMensagem(this.jogador);
+            OuvinteViewDadosMensagem ouvinte = new OuvinteViewDadosMensagem(viewDadosMensagem);
+            viewDadosMensagem.setAcao(acao);
+            this.getParent().add(viewDadosMensagem);
+            viewDadosMensagem.setPosicao();
+        //}
+
+        viewDadosMensagem.setMensagem(mensagem);
+        viewDadosMensagem.exibirMensagem(viewDadosMensagem.getMensagem());
+        //viewDadosJuiz.preencherJuiz();
+        viewDadosMensagem.setVisible(true);
+        try {
+            viewDadosMensagem.setSelected(true);
+        } catch (PropertyVetoException ex) {
+            ViewUtil.addMsgErro("Não foi possível abrir a viewDadosMensagem");
+        }
+    }
+
+    public void listar(List mensagens) {
+        try {
+            this.mensagens = mensagens;
+            DefaultTableModel model = (DefaultTableModel) tMensagens.getModel();
+            this.removerLinhasDaTabela(model);
+
+            Iterator resultado = mensagens.iterator();
+
+            while (resultado.hasNext()) {
+                Mensagem mensagemTemp = (Mensagem) resultado.next();
+                String remetente = mensagemTemp.getRemetente();
+                String destinatario = mensagemTemp.getDestinatario();
+                String assunto = mensagemTemp.getAssunto();
+
+                Object[] linha = {remetente, destinatario, assunto};
+                model.addRow(linha);
+            }
+
+        } catch (RuntimeException ex) {
+            ViewUtil.addMsgErro("Ocorreu um erro ao carregar as Mensagens " + ex.getMessage());
+        }
+    }
+
+    private void removerLinhasDaTabela(DefaultTableModel model) {
+        while (model.getRowCount() > 0) {
+            int ultimaLinha = model.getRowCount() - 1;
+            model.removeRow(ultimaLinha);
+        }
+    }
+
+    public String getNomePesquisar() {
+        String nome = null;
+        nome = this.jtxCriterio.getText();
+
+        return nome;
+    }
+
+    public Mensagem getMensagem() {
+        Mensagem mensagemTemp = null;
+        try {
+
+            int linhaSelecionada = tMensagens.getSelectedRow();
+            if (linhaSelecionada < 0) {
+                ViewUtil.addMsgErro("Nenhuma linha foi Selecionada");
+            }
+            mensagemTemp = (Mensagem) this.mensagens.get(linhaSelecionada);
+
+        } catch (RuntimeException ex) {
+            ViewUtil.addMsgErro("Erro ao carregar o Mensagem " + ex.getMessage());
+        }
+        return mensagemTemp;
+    }
+
+    public void bAbrirAddActionListener(ActionListener ouvinte) {
+        bAbrir.addActionListener(ouvinte);
+    }
+
+    public void bPesquisarAddActionListener(ActionListener ouvinte) {
+        bPesquisar.addActionListener(ouvinte);
+    }
+
+    public void bEnviadasTodosAddActionListener(ActionListener ouvinte) {
+        bEnviadas.addActionListener(ouvinte);
+    }
+
+    public void bRecebidasTodosAddActionListener(ActionListener ouvinte) {
+        bRecebidas.addActionListener(ouvinte);
+    }
+
+    public Jogador getJogador() {
+        return jogador;
+    }
+
+    public void setJogador(Jogador jogador) {
+        this.jogador = jogador;
+    }
+
+    public int pedirConfirmacao(String mensagem, String titulo, int tipo) {
+        int resposta = JOptionPane.showConfirmDialog(null, mensagem, titulo, tipo);
+        return resposta;
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        bNovo = new javax.swing.JButton();
+        spListaJuizes = new javax.swing.JScrollPane();
+        tMensagens = new javax.swing.JTable();
+        bRecebidas = new javax.swing.JButton();
+        pPesquisa = new javax.swing.JPanel();
+        lEmail = new javax.swing.JLabel();
+        jtxCriterio = new javax.swing.JTextField();
+        bPesquisar = new javax.swing.JButton();
+        bEnviadas = new javax.swing.JButton();
+        bAbrir = new javax.swing.JButton();
+
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Mensagens");
+
+        bNovo.setText("Novo");
+        bNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bNovoActionPerformed(evt);
+            }
+        });
+
+        tMensagens.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Remetente", "Destinatário", "Assunto"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tMensagens.getTableHeader().setReorderingAllowed(false);
+        spListaJuizes.setViewportView(tMensagens);
+
+        bRecebidas.setText("Recebidas");
+
+        pPesquisa.setBorder(javax.swing.BorderFactory.createTitledBorder("Critério de Pesquisa"));
+
+        lEmail.setText("Destinatário");
+
+        bPesquisar.setText("Pesquisar");
+
+        javax.swing.GroupLayout pPesquisaLayout = new javax.swing.GroupLayout(pPesquisa);
+        pPesquisa.setLayout(pPesquisaLayout);
+        pPesquisaLayout.setHorizontalGroup(
+            pPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pPesquisaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bPesquisar)
+                    .addGroup(pPesquisaLayout.createSequentialGroup()
+                        .addComponent(lEmail)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtxCriterio, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+        pPesquisaLayout.setVerticalGroup(
+            pPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pPesquisaLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(pPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lEmail)
+                    .addComponent(jtxCriterio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(bPesquisar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        bEnviadas.setText("Enviadas");
+
+        bAbrir.setText("Abrir");
+        bAbrir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAbrirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(pPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bNovo))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(spListaJuizes, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bEnviadas)
+                                .addGap(32, 32, 32)
+                                .addComponent(bRecebidas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bAbrir)
+                                .addGap(11, 11, 11)))))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bNovo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(spListaJuizes, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bRecebidas)
+                    .addComponent(bEnviadas)
+                    .addComponent(bAbrir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void bNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNovoActionPerformed
+        // TODO add your handling code here:
+        Mensagem mensagem = new Mensagem();
+        this.abrirViewDadosMensagem(mensagem, "novo");
+    }//GEN-LAST:event_bNovoActionPerformed
+
+    private void bAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAbrirActionPerformed
+        // TODO add your handling code here:
+        Mensagem mensagem = null;
+        try {
+            mensagem = this.getMensagem();
+            this.abrirViewDadosMensagem(mensagem, "editar");
+        } catch (RuntimeException ex) {
+            ViewUtil.addMsgErro("Não foi possível carregar os dados da mensagem " + ex.getMessage());
+        }
+    }//GEN-LAST:event_bAbrirActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAbrir;
+    private javax.swing.JButton bEnviadas;
+    private javax.swing.JButton bNovo;
+    private javax.swing.JButton bPesquisar;
+    private javax.swing.JButton bRecebidas;
+    private javax.swing.JTextField jtxCriterio;
+    private javax.swing.JLabel lEmail;
+    private javax.swing.JPanel pPesquisa;
+    private javax.swing.JScrollPane spListaJuizes;
+    private javax.swing.JTable tMensagens;
+    // End of variables declaration//GEN-END:variables
+}

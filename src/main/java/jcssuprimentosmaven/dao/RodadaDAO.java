@@ -32,7 +32,7 @@ public class RodadaDAO {
         }
     }
     
-    public List<Rodada> litar(){
+    public List<Rodada> listar(){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         List<Rodada> listaRodadas = null;
         try{

@@ -1,0 +1,368 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package jcssuprimentosmaven.view;
+
+import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import jcssuprimentosmaven.constantes.StatusEnum;
+import java.util.*;
+import javax.swing.JOptionPane;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import jcssuprimentosmaven.constantes.FuncaoEnum;
+import jcssuprimentosmaven.domain.Jogador;
+import jcssuprimentosmaven.util.ViewUtil;
+
+/**
+ *
+ * @author Gustavo
+ */
+public class ViewDadosJogador extends javax.swing.JInternalFrame {
+
+    /**
+     * Creates new form ViewDadosJuiz
+     */
+    private String acao;
+    private Jogador jogador;
+    private boolean error = false;
+    /* para carregar o enum no combobox tem que editar a propriedade
+     *  Model na guia propriedades e adicionar new javax.swing.DefaultComboBoxModel(StatusEnum.values())
+     */
+
+    public ViewDadosJogador() {
+        initComponents();
+        licon.setIcon(new javax.swing.ImageIcon(".\\imagem\\icon_login.png")); // NOI18N
+        for(StatusEnum status: StatusEnum.values()){
+            cbStatus.addItem(status.getStatus());
+        }
+        
+        for(FuncaoEnum funcao: FuncaoEnum.values()){
+            cbFuncao.addItem(funcao.getFuncao());
+        }
+    }
+
+    public String getAcao() {
+        return acao;
+    }
+
+    public void setAcao(String acao) {
+        this.acao = acao;
+    }
+
+    public Jogador preencherJogador() {
+        
+        int status = cbStatus.getSelectedIndex();
+        int funcao = cbFuncao.getSelectedIndex();
+        if(status == 0){
+            ViewUtil.addMsgErro("Não foi selecionado nenhum status");
+        }else{
+            jogador.setStatus(status - 1);
+        }
+        if(funcao == 0){
+            ViewUtil.addMsgErro("Não foi selecionado nenhuma função");
+        }else{
+            jogador.setFuncao(funcao);
+        }
+
+        jogador.setLogin(this.jtxLogin.getText());
+        jogador.setSenha(this.jtxSenha.getText());
+        jogador.setEmail(this.jtxEmail.getText());
+        jogador.setStatus(this.cbStatus.getSelectedIndex());
+        jogador.setNome(this.jtxNome.getText());
+        jogador.setFuncao(this.cbFuncao.getSelectedIndex());
+
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        Set<ConstraintViolation<Jogador>> constraintViolation = validator.validate(jogador);
+
+        if (!constraintViolation.isEmpty()) {
+            String mensagem = "";
+            for (ConstraintViolation<Jogador> erro : constraintViolation) {
+                mensagem += erro.getMessage() + "\n";
+                ViewUtil.addMsgErro(mensagem);
+            }
+            this.error = true;
+        }
+
+        return jogador;
+    }
+
+    public void exibirJuiz(Jogador jogador) {
+        this.limparCampos();
+        //if (juiz != null) {
+            this.jtxNome.setText(jogador.getNome());
+            this.jtxLogin.setText(jogador.getLogin());
+            this.jtxSenha.setText(jogador.getSenha());
+            this.jtxEmail.setText(jogador.getEmail());
+            this.cbStatus.setSelectedIndex(jogador.getStatus());
+        //} 
+    }
+
+    public void bGravarJuizAddActionListener(ActionListener ouvinte) {
+        bGravar.addActionListener(ouvinte);
+    }
+
+    public void bEditarJuizAddActionListener(ActionListener ouvinte) {
+        bEditar.addActionListener(ouvinte);
+    }
+
+    public void bExcluirJuizAddActionListener(ActionListener ouvinte) {
+        bExcluir.addActionListener(ouvinte);
+    }
+
+    public boolean getErro() {
+        return this.error;
+    }
+
+    public void setError(boolean valor) {
+        this.error = valor;
+    }
+
+    public Jogador getJogador() {
+        return this.jogador;
+    }
+
+    public void setJuiz(Jogador jogador) {
+        this.jogador = jogador;
+    }
+
+    public void limparCampos() {
+        this.jtxEmail.setText(null);
+        this.jtxLogin.setText(null);
+        this.jtxSenha.setText(null);
+        this.jtxNome.setText(null);
+        this.cbStatus.setSelectedIndex(0);
+    }
+
+    public void setPosicao() {
+        Dimension d = this.getDesktopPane().getSize();
+        this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
+
+    public int pedirConfirmacao(String mensagem, String titulo, int tipo) {
+        int resposta = JOptionPane.showConfirmDialog(null, mensagem, titulo, tipo);
+        return resposta;
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        pDadosJuiz = new javax.swing.JPanel();
+        lLogin = new javax.swing.JLabel();
+        lSenha = new javax.swing.JLabel();
+        lEmail = new javax.swing.JLabel();
+        lStatus = new javax.swing.JLabel();
+        jtxLogin = new javax.swing.JTextField();
+        jtxSenha = new javax.swing.JTextField();
+        jtxEmail = new javax.swing.JTextField();
+        cbStatus = new javax.swing.JComboBox();
+        bNovo = new javax.swing.JButton();
+        bCancelar = new javax.swing.JButton();
+        bExcluir = new javax.swing.JButton();
+        bGravar = new javax.swing.JButton();
+        bEditar = new javax.swing.JButton();
+        lNome = new javax.swing.JLabel();
+        jtxNome = new javax.swing.JTextField();
+        lFuncao = new javax.swing.JLabel();
+        cbFuncao = new javax.swing.JComboBox();
+        licon = new javax.swing.JLabel();
+
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Cadastro - Jogador");
+
+        pDadosJuiz.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Jogador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+
+        lLogin.setText("Login");
+
+        lSenha.setText("Senha");
+
+        lEmail.setText("Email");
+
+        lStatus.setText("Status");
+
+        cbStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione..." }));
+
+        bNovo.setText("Novo");
+        bNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bNovoActionPerformed(evt);
+            }
+        });
+
+        bCancelar.setText("Cancelar");
+        bCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCancelarActionPerformed(evt);
+            }
+        });
+
+        bExcluir.setText("Excluir");
+
+        bGravar.setText("Gravar");
+
+        bEditar.setText("Editar");
+
+        lNome.setText("Nome");
+
+        lFuncao.setText("Função");
+
+        cbFuncao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione..." }));
+
+        javax.swing.GroupLayout pDadosJuizLayout = new javax.swing.GroupLayout(pDadosJuiz);
+        pDadosJuiz.setLayout(pDadosJuizLayout);
+        pDadosJuizLayout.setHorizontalGroup(
+            pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDadosJuizLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDadosJuizLayout.createSequentialGroup()
+                        .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lSenha)
+                            .addComponent(lEmail))
+                        .addGap(18, 18, 18)
+                        .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxEmail)
+                            .addComponent(jtxSenha)))
+                    .addGroup(pDadosJuizLayout.createSequentialGroup()
+                        .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lLogin)
+                            .addComponent(lNome))
+                        .addGap(21, 21, 21)
+                        .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxNome)
+                            .addComponent(jtxLogin)))
+                    .addGroup(pDadosJuizLayout.createSequentialGroup()
+                        .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pDadosJuizLayout.createSequentialGroup()
+                                .addComponent(bNovo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bGravar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bCancelar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bEditar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bExcluir))
+                            .addGroup(pDadosJuizLayout.createSequentialGroup()
+                                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDadosJuizLayout.createSequentialGroup()
+                                        .addComponent(lStatus)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(pDadosJuizLayout.createSequentialGroup()
+                                        .addComponent(lFuncao)
+                                        .addGap(14, 14, 14)))
+                                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cbFuncao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbStatus, 0, 170, Short.MAX_VALUE))))
+                        .addGap(0, 28, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pDadosJuizLayout.setVerticalGroup(
+            pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDadosJuizLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lNome)
+                    .addComponent(jtxNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pDadosJuizLayout.createSequentialGroup()
+                        .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lLogin)
+                            .addComponent(jtxLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jtxSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lSenha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lEmail))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lFuncao)
+                    .addComponent(cbFuncao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lStatus))
+                .addGap(18, 18, 18)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bNovo)
+                    .addComponent(bCancelar)
+                    .addComponent(bExcluir)
+                    .addComponent(bGravar)
+                    .addComponent(bEditar)))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(pDadosJuiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(licon, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(licon, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(pDadosJuiz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void bNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNovoActionPerformed
+        // TODO add your handling code here:
+        limparCampos();
+        jogador = new Jogador();
+    }//GEN-LAST:event_bNovoActionPerformed
+
+    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_bCancelarActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    protected javax.swing.JButton bCancelar;
+    protected javax.swing.JButton bEditar;
+    protected javax.swing.JButton bExcluir;
+    protected javax.swing.JButton bGravar;
+    protected javax.swing.JButton bNovo;
+    private javax.swing.JComboBox cbFuncao;
+    private javax.swing.JComboBox cbStatus;
+    private javax.swing.JTextField jtxEmail;
+    private javax.swing.JTextField jtxLogin;
+    private javax.swing.JTextField jtxNome;
+    private javax.swing.JTextField jtxSenha;
+    private javax.swing.JLabel lEmail;
+    private javax.swing.JLabel lFuncao;
+    private javax.swing.JLabel lLogin;
+    private javax.swing.JLabel lNome;
+    private javax.swing.JLabel lSenha;
+    private javax.swing.JLabel lStatus;
+    private javax.swing.JLabel licon;
+    private javax.swing.JPanel pDadosJuiz;
+    // End of variables declaration//GEN-END:variables
+}

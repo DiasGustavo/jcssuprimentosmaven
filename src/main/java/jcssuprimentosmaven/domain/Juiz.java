@@ -26,7 +26,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "tbl_juiz")
 @NamedQueries({
     @NamedQuery(name = "Juiz.listar", query = "SELECT juiz FROM Juiz juiz"),
-    @NamedQuery(name = "Juiz.buscarPorCodigo", query = "SELECT juiz FROM Juiz juiz WHERE juiz.id = :codigo")
+    @NamedQuery(name = "Juiz.buscarPorCodigo", query = "SELECT juiz FROM Juiz juiz WHERE juiz.id = :codigo"),
+    @NamedQuery(name = "Juiz.buscarPorNome", query = "SELECT juiz FROM Juiz juiz WHERE juiz.nome = :nome")
 })
 public class Juiz implements Serializable {
     @Id
@@ -34,22 +35,31 @@ public class Juiz implements Serializable {
     @Column(name = "cod_juiz")
     private Long id;
     
+    @NotEmpty(message = "o campo nome é obrigatório")
+    @Size(min=1, max=80, message = "O nome tem que ter entre 1 e 80 caracteres ") 
+    @Column(name = "nome", length = 80)
+    private String nome;
+    
     @NotEmpty(message = "o campo login é obrigatório")
-    @Size(min=1, max=50, message = "O login tem que ter entre 1 e 20 caracteres") 
+    @Size(min=1, max=20, message = "O login tem que ter entre 1 e 20 caracteres ") 
     @Column(name = "login", length = 20)
     private String login;
     
     @NotEmpty(message = "o campo senha é obrigatório")
-    @Size(min=1, max=50, message = "A senha tem que ter entre 1 e 10 caracteres")
+    @Size(min=1, max=20, message = "A senha tem que ter entre 1 e 10 caracteres")
     @Column(name = "senha", length = 10)
     private String senha;
     
+    @NotEmpty(message = "o campo email é obrigatório")
     @Email(message = "Email informado não é válido")
     @Column(name = "email", length = 60)
     private String email;    
     
-    @Column(name = "status", length = 10)
-    private String status;
+    @Column(name = "status")
+    private int status;
+    
+    @Column(name = "funcao", length = 20)
+    private String funcao;
 
     public Long getId() {
         return id;
@@ -83,13 +93,30 @@ public class Juiz implements Serializable {
         this.email = email;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
+    } 
+    
 
     @Override
     public String toString() {

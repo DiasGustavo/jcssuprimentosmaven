@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,6 +25,8 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import jcssuprimentosmaven.converter.EmpresaConverter;
+import jcssuprimentosmaven.converter.FabricaConverter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -33,7 +37,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "tbl_investimento")
 @NamedQueries({
     @NamedQuery(name = "Investimento.listar", query = "SELECT investimento FROM Investimento investimento"),
-    @NamedQuery(name = "Investimento.buscarPorCodigo", query = "SELECT investimento FROM Investimento investimento WHERE investimento.id = :codigo")
+    @NamedQuery(name = "Investimento.buscarPorCodigo", query = "SELECT investimento FROM Investimento investimento WHERE investimento.id = :codigo"),
+    @NamedQuery(name = "Investimento.buscarPorNome", query = "SELECT investimento FROM Investimento investimento WHERE investimento.descricao = :nome"),
+    @NamedQuery(name = "Investimento.buscarPorFabrica", query = "SELECT investimento FROM Investimento investimento WHERE investimento.fabrica = :fabrica")
 })
 public class Investimento implements Serializable {
     @Id
@@ -52,10 +58,12 @@ public class Investimento implements Serializable {
     @Column(name = "valor", precision = 9, scale = 2, nullable = false)
     private BigDecimal valor;
     
-    @NotEmpty(message = "o campo empresa é obrigatório")
+    //@NotEmpty(message = "o campo empresa é obrigatório")
+    @ElementCollection
+    @Convert(converter = FabricaConverter.class, attributeName = "fk_fabrica")
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "fk_empresa", referencedColumnName = "cod_empresa", nullable = false)
-    private Empresa empresa;
+    @JoinColumn(name = "fk_fabrica", referencedColumnName = "cod_fabrica", nullable = false)
+    private Fabrica fabrica;
 
     public Long getId() {
         return id;
@@ -81,17 +89,17 @@ public class Investimento implements Serializable {
         this.valor = valor;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
+    public Fabrica getFabrica() {
+        return fabrica;
     }
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
+    public void setFabrica(Fabrica fabrica) {
+        this.fabrica = fabrica;
     }
 
     @Override
     public String toString() {
-        return "Investimento{" + "id=" + id + ", descricao=" + descricao + ", valor=" + valor + ", empresa=" + empresa + '}';
+        return "Investimento: " + descricao + ", valor:" + valor;
     }
 
     @Override

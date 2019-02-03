@@ -6,6 +6,7 @@
 package jcssuprimentosmaven.dao;
 
 import java.util.List;
+import jcssuprimentosmaven.domain.Fornecedor;
 import jcssuprimentosmaven.domain.MateriaPrima;
 import jcssuprimentosmaven.util.HibernateUtil;
 import org.hibernate.Query;
@@ -63,6 +64,54 @@ public class MateriaPrimaDAO {
         }
         return materiaPrima;
     }
+    
+    public List<MateriaPrima> buscarPorNome(String nomeInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<MateriaPrima> listaMateriaPrima = null;
+        
+        try{
+            Query consulta = sessao.getNamedQuery("MateriaPrima.buscarPorNome");
+            consulta.setString("descricao", nomeInformado);
+            listaMateriaPrima = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaMateriaPrima;
+    }
+    
+    public List<MateriaPrima> buscarPorStatus(String statusInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<MateriaPrima> listaMateriaPrima = null;
+        
+        try{
+            Query consulta = sessao.getNamedQuery("MateriaPrima.buscarPorStatus");
+            consulta.setString("status", statusInformado);
+            listaMateriaPrima = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaMateriaPrima;
+    }
+    
+    /*public List<MateriaPrima> buscarPorFornecedor(Fornecedor fornecedorInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<MateriaPrima> listaMateriaPrima = null;
+        
+        try{
+            Query consulta = sessao.getNamedQuery("MateriaPrima.buscarPorFornecedor");
+            consulta.setLong("fornecedor", fornecedorInformado.getId());
+            listaMateriaPrima = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaMateriaPrima;
+    }*/
     
     public void editar(MateriaPrima materiaPrima){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
