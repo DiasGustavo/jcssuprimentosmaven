@@ -26,7 +26,10 @@ public class OuvinteViewPesquisaProduto {
         this.viewPesquisaProduto.bPesquisarTodosAddActionListener(new OuvintePesquisarTodosProdutos());
         this.viewPesquisaProduto.bPesquisarAddActionListener(new OuvintePesquisaProduto());
         this.viewPesquisaProduto.bExcluirAddActionListener(new OuvinteExcluirProduto());
+<<<<<<< HEAD
         
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     }
     
     class OuvintePesquisarTodosProdutos implements ActionListener{
@@ -80,7 +83,10 @@ public class OuvinteViewPesquisaProduto {
                     ProdutoController produtoController = new ProdutoController();
                     produtoController.setProdutoCadastro(produto);
                     produtoController.excluir();
+<<<<<<< HEAD
                     produtoController.listar();
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                     List produtos = produtoController.getListaProdutos();
                     viewPesquisaProduto.listar(produtos);
                 }
@@ -89,5 +95,10 @@ public class OuvinteViewPesquisaProduto {
             }
         }
         
+<<<<<<< HEAD
     }    
+=======
+    }
+    
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 }

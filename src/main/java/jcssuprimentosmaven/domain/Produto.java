@@ -27,11 +27,16 @@ import javax.validation.constraints.Size;
 import jcssuprimentosmaven.converter.FabricaConverter;
 
 /**
+<<<<<<< HEAD
  * @author Gustavo
  * Criação: 26/07/2018 
  * Última Alteração 26/07/2018
  * @version 1.0
  * obs.: crição do produtos
+=======
+ *
+ * @author Gustavo
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
  */
 @Entity
 @Table(name = "tbl_produto")
@@ -50,12 +55,15 @@ public class Produto implements Serializable {
     @Column(name = "descricao", length = 100)
     private String descricao;
     
+<<<<<<< HEAD
     @NotNull(message="o campo valor é obrigatório.")
     @DecimalMin(value="0.00", message="o campo valor deve ser maior do que 0.00")
     @Digits(integer = 7, fraction = 2, message = "coloque um valor válido para o campo valor")
     @Column(name = "valor", precision = 9, scale = 2, nullable = false)
     private BigDecimal valor;
     
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     @ElementCollection
     @Convert(converter = FabricaConverter.class, attributeName = "fk_fabrica")
     //@NotEmpty(message = "O campo fornecedor é obrigatório")
@@ -101,6 +109,7 @@ public class Produto implements Serializable {
         this.quantidade = quantidade;
     }
 
+<<<<<<< HEAD
     public BigDecimal getValor() {
         return valor;
     }
@@ -109,6 +118,8 @@ public class Produto implements Serializable {
         this.valor = valor;
     }
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     @Override
     public String toString() {
         return id + ": " +descricao + " - " + fabrica.getNomeFantasia() + " - qtd: " + quantidade ;

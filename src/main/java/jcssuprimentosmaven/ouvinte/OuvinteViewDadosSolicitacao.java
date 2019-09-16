@@ -9,8 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import jcssuprimentosmaven.controller.SolicitacaoController;
+<<<<<<< HEAD
 import jcssuprimentosmaven.dao.ProdutoDAO;
 import jcssuprimentosmaven.domain.Produto;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.domain.Solicitacao;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaSolicitacao.OuvinteExcluirSolicitacao;
 import jcssuprimentosmaven.util.ViewUtil;
@@ -40,11 +43,14 @@ public class OuvinteViewDadosSolicitacao {
                     SolicitacaoController solicitacaoController = new SolicitacaoController();
                     solicitacaoController.setSolicitacaoCadastro(solicitacao);
                     solicitacaoController.salvar();
+<<<<<<< HEAD
                     //subtraindo a quantidade de produtos depois de feita a solicitação.
                     ProdutoDAO pdao = new ProdutoDAO();
                     Produto produto = pdao.buscarPorCodigo(solicitacao.getProduto().getId());
                     produto.setQuantidade(produto.getQuantidade().subtract(solicitacao.getQuantidade()));
                     pdao.editar(produto);
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                     viewDadosSolicitacao.limparCampos();
                 }else{
                     viewDadosSolicitacao.setError(false);

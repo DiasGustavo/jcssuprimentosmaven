@@ -328,7 +328,11 @@ public class ViewDadosEmpresa extends javax.swing.JInternalFrame {
 
         pDadosEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados da Empresa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
+<<<<<<< HEAD
         lParticipante.setText("Equipe");
+=======
+        lParticipante.setText("Participante");
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         bNovo.setText("Novo");
         bNovo.addActionListener(new java.awt.event.ActionListener() {

@@ -180,9 +180,15 @@ public class ViewDadosJogador extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+<<<<<<< HEAD
         setTitle("Cadastro - Equipe");
 
         pDadosJuiz.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados da Equipe", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+=======
+        setTitle("Cadastro - Jogador");
+
+        pDadosJuiz.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Jogador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         lLogin.setText("Login");
 

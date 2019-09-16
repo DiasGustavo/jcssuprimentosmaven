@@ -16,6 +16,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+<<<<<<< HEAD
 import jcssuprimentosmaven.controller.ArmazemFabricaController;
 import jcssuprimentosmaven.controller.EmpresaController;
 import jcssuprimentosmaven.controller.FabricaController;
@@ -26,6 +27,13 @@ import jcssuprimentosmaven.domain.ArmazemFabrica;
 import jcssuprimentosmaven.domain.Empresa;
 import jcssuprimentosmaven.domain.Fabrica;
 import jcssuprimentosmaven.domain.Jogador;
+=======
+import jcssuprimentosmaven.dao.FabricaDAO;
+import jcssuprimentosmaven.dao.MateriaPrimaDAO;
+import jcssuprimentosmaven.domain.ArmazemFabrica;
+import jcssuprimentosmaven.domain.ArmazemSuprimento;
+import jcssuprimentosmaven.domain.Fabrica;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.domain.MateriaPrima;
 import jcssuprimentosmaven.util.ViewUtil;
 
@@ -40,7 +48,10 @@ public class ViewDadosArmazemFabrica extends javax.swing.JInternalFrame {
 
     private List materias;
     private List fabricas;
+<<<<<<< HEAD
     private Jogador jogador;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     /**
      * Creates new form ViewDadosJuiz
      */
@@ -66,6 +77,7 @@ public class ViewDadosArmazemFabrica extends javax.swing.JInternalFrame {
         logo.setIcon(new javax.swing.ImageIcon(".\\imagem\\armazem_ico.png"));
     }
     
+<<<<<<< HEAD
     public ViewDadosArmazemFabrica(Jogador jogador){
         initComponents();
         this.jogador = jogador;
@@ -98,6 +110,8 @@ public class ViewDadosArmazemFabrica extends javax.swing.JInternalFrame {
         logo.setIcon(new javax.swing.ImageIcon(".\\imagem\\armazem_ico.png"));
     }
     
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
       
     public String getAcao() {
         return acao;

@@ -7,7 +7,10 @@ package jcssuprimentosmaven.view;
 
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
 import java.awt.event.KeyEvent;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import java.math.BigDecimal;
 import java.util.*;
 import javax.swing.DefaultComboBoxModel;
@@ -17,6 +20,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+<<<<<<< HEAD
 import jcssuprimentosmaven.controller.ArmazemDistribuicaoController;
 import jcssuprimentosmaven.controller.ArmazemFabricaController;
 import jcssuprimentosmaven.controller.EmpresaController;
@@ -29,6 +33,13 @@ import jcssuprimentosmaven.domain.ArmazemDistribuicao;
 import jcssuprimentosmaven.domain.Empresa;
 import jcssuprimentosmaven.domain.Fabrica;
 import jcssuprimentosmaven.domain.Jogador;
+=======
+import jcssuprimentosmaven.dao.ArmazemDistribuicaoDAO;
+import jcssuprimentosmaven.dao.ArmazemFabricaDAO;
+import jcssuprimentosmaven.dao.MeioTransporteDAO;
+import jcssuprimentosmaven.dao.ProdutoDAO;
+import jcssuprimentosmaven.domain.ArmazemDistribuicao;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.domain.MeioTransporte;
 import jcssuprimentosmaven.domain.Produto;
 import jcssuprimentosmaven.domain.Solicitacao;
@@ -49,7 +60,10 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
     private List produtos;
     private List armazens;
     private List transportes;
+<<<<<<< HEAD
     private Jogador jogador;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     /* para carregar o enum no combobox tem que editar a propriedade
      *  Model na guia propriedades e adicionar new javax.swing.DefaultComboBoxModel(StatusEnum.values())
      */
@@ -72,6 +86,7 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
         this.setTransportes(mtdao.listar());
         DefaultComboBoxModel defaultComboBoxModelEstoque = new DefaultComboBoxModel(this.getTransportes().toArray());
         this.getCbMeioTransporte().setModel(defaultComboBoxModelEstoque);
+<<<<<<< HEAD
         this.lTotal.setText("0.00");
         this.lTotal.setVisible(true);        
         cbStatus.setSelectedIndex(0);
@@ -109,6 +124,8 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
         this.lTotal.setText("0.00");
         this.lTotal.setVisible(true);        
         cbStatus.setSelectedIndex(0);
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         
         logo.setIcon(new javax.swing.ImageIcon(".\\imagem\\caixa110_110.png"));
     }
@@ -184,7 +201,10 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
         solicitacao.setProduto((Produto) this.cbProdutos.getSelectedItem());
         solicitacao.setArmazemDistribuicao((ArmazemDistribuicao) this.cbArmazem.getSelectedItem());
         solicitacao.setMeioTransporte((MeioTransporte)this.cbMeioTransporte.getSelectedItem());
+<<<<<<< HEAD
         solicitacao.setStatus((String)this.cbStatus.getSelectedItem());
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
@@ -210,7 +230,10 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
         this.cbArmazem.setSelectedItem(solicitacao.getArmazemDistribuicao());
         this.cbProdutos.setSelectedItem(solicitacao.getProduto());
         this.cbMeioTransporte.setSelectedItem(solicitacao.getMeioTransporte());
+<<<<<<< HEAD
         this.cbStatus.setSelectedItem(solicitacao.getStatus());
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         //} 
     }
 
@@ -240,7 +263,10 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
         this.cbArmazem.setSelectedIndex(0);
         this.cbProdutos.setSelectedIndex(0);
         this.cbMeioTransporte.setSelectedIndex(0);
+<<<<<<< HEAD
         this.cbStatus.setSelectedIndex(0);
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     }
 
     public void setPosicao() {
@@ -278,11 +304,15 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
         jtxQuantidade = new javax.swing.JTextField();
         lMeioTransporte = new javax.swing.JLabel();
         cbMeioTransporte = new javax.swing.JComboBox();
+<<<<<<< HEAD
         lStatus = new javax.swing.JLabel();
         cbStatus = new javax.swing.JComboBox<>();
         logo = new javax.swing.JLabel();
         lValor = new javax.swing.JLabel();
         lTotal = new javax.swing.JLabel();
+=======
+        logo = new javax.swing.JLabel();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -314,7 +344,11 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
 
         cbProdutos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione..." }));
 
+<<<<<<< HEAD
         lArmazem.setText("Armazém de Distribuição");
+=======
+        lArmazem.setText("Armazém");
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         lArmazem.setToolTipText("Armazém de destino");
 
         cbArmazem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione..." }));
@@ -323,20 +357,26 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
 
         lQuantidade.setText("Quantidade");
 
+<<<<<<< HEAD
         jtxQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jtxQuantidadeKeyPressed(evt);
             }
         });
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         lMeioTransporte.setText("Meio de Transporte");
 
         cbMeioTransporte.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione..." }));
 
+<<<<<<< HEAD
         lStatus.setText("Status");
 
         cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Entregue" }));
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         javax.swing.GroupLayout pDadosJuizLayout = new javax.swing.GroupLayout(pDadosJuiz);
         pDadosJuiz.setLayout(pDadosJuizLayout);
         pDadosJuizLayout.setHorizontalGroup(
@@ -363,8 +403,12 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
                             .addComponent(lDescricao)
                             .addComponent(lQuantidade)
                             .addComponent(lArmazem)
+<<<<<<< HEAD
                             .addComponent(lMeioTransporte)
                             .addComponent(lStatus))
+=======
+                            .addComponent(lMeioTransporte))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                         .addGap(21, 21, 21)
                         .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -372,8 +416,12 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
                                 .addComponent(cbMeioTransporte, 0, 522, Short.MAX_VALUE)
                                 .addComponent(cbProdutos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cbArmazem, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+<<<<<<< HEAD
                             .addComponent(jtxDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                            .addComponent(jtxDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         pDadosJuizLayout.setVerticalGroup(
@@ -395,11 +443,15 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
                 .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lQuantidade)
                     .addComponent(jtxQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lStatus)
                     .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lDescricao)
                     .addComponent(jtxDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -413,6 +465,7 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+<<<<<<< HEAD
         lValor.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lValor.setText("Valor:");
 
@@ -420,6 +473,8 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
         lTotal.setForeground(new java.awt.Color(0, 204, 255));
         lTotal.setText("Total");
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -428,12 +483,16 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(pDadosJuiz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lValor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lTotal)))
+=======
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
@@ -442,6 +501,7 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pDadosJuiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
@@ -449,6 +509,10 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
                             .addComponent(lValor)
                             .addComponent(lTotal))))
                 .addContainerGap(15, Short.MAX_VALUE))
+=======
+                    .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         );
 
         pack();
@@ -465,6 +529,7 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed
 
+<<<<<<< HEAD
     private void jtxQuantidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxQuantidadeKeyPressed
         int quantidade = Integer.valueOf(this.jtxQuantidade.getText());
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -482,6 +547,8 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jtxQuantidadeKeyPressed
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton bCancelar;
@@ -492,7 +559,10 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox cbArmazem;
     private javax.swing.JComboBox cbMeioTransporte;
     private javax.swing.JComboBox cbProdutos;
+<<<<<<< HEAD
     private javax.swing.JComboBox<String> cbStatus;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     private javax.swing.JTextField jtxDescricao;
     private javax.swing.JTextField jtxQuantidade;
     private javax.swing.JLabel lArmazem;
@@ -500,9 +570,12 @@ public class ViewDadosSolicitacao extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lMeioTransporte;
     private javax.swing.JLabel lProduto;
     private javax.swing.JLabel lQuantidade;
+<<<<<<< HEAD
     private javax.swing.JLabel lStatus;
     private javax.swing.JLabel lTotal;
     private javax.swing.JLabel lValor;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     private javax.swing.JLabel logo;
     private javax.swing.JPanel pDadosJuiz;
     // End of variables declaration//GEN-END:variables

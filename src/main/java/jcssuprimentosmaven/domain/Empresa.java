@@ -26,6 +26,10 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import jcssuprimentosmaven.converter.JogadorConverter;
+<<<<<<< HEAD
+=======
+import jcssuprimentosmaven.converter.RodadaConverter;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**

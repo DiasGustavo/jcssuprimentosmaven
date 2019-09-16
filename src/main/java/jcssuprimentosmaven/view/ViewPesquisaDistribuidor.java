@@ -41,6 +41,7 @@ public class ViewPesquisaDistribuidor extends javax.swing.JInternalFrame {
     public ViewPesquisaDistribuidor(Jogador jogador) {
         initComponents();
         this.jogador = jogador;
+<<<<<<< HEAD
         if(this.jogador.getFuncao()==1){
            this.bNovo.setEnabled(false);
            this.bExcluir.setEnabled(false);
@@ -48,6 +49,8 @@ public class ViewPesquisaDistribuidor extends javax.swing.JInternalFrame {
            this.jtxCriterio.setEnabled(false);
            this.bPesquisar.setEnabled(false);
         }
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     }
 
     public void setPosicao() {

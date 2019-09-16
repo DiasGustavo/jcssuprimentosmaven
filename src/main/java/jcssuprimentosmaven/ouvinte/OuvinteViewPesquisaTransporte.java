@@ -10,15 +10,22 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
 import jcssuprimentosmaven.controller.ArmazemFabricaController;
+<<<<<<< HEAD
 import jcssuprimentosmaven.controller.ArmazemSuprimentoController;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.controller.EmpresaController;
 import jcssuprimentosmaven.controller.EstoqueSuprimentoController;
 import jcssuprimentosmaven.controller.FabricaController;
 import jcssuprimentosmaven.controller.TransporteController;
 import jcssuprimentosmaven.domain.ArmazemFabrica;
+<<<<<<< HEAD
 import jcssuprimentosmaven.domain.ArmazemSuprimento;
 import jcssuprimentosmaven.domain.Empresa;
 import jcssuprimentosmaven.domain.EstoqueSuprimento;
+=======
+import jcssuprimentosmaven.domain.Empresa;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.domain.Fabrica;
 import jcssuprimentosmaven.domain.Jogador;
 import jcssuprimentosmaven.domain.Transporte;
@@ -71,7 +78,11 @@ public class OuvinteViewPesquisaTransporte {
                     Fabrica fabrica = (Fabrica) fabricas.get(0);
                     List armazens = armazemFabricaController.buscarPorFabrica(fabrica);
                     ArmazemFabrica armazem = (ArmazemFabrica) armazens.get(0);
+<<<<<<< HEAD
                     List transportes = transporteController.buscarPorArmazemFabricaStatus(armazem, "Pendente");
+=======
+                    List transportes = transporteController.buscarPorArmazemFabrica(armazem);
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
                     if (transportes.size() > 0) {
                         viewPesquisaTransporte.listar(transportes);
@@ -148,6 +159,7 @@ public class OuvinteViewPesquisaTransporte {
                 //List transportes = transporteController.buscarPorEmpresa(empresa);
                 List fabricas = fabricaController.buscarPorEmpresa(empresa);
                 Fabrica fabrica = (Fabrica) fabricas.get(0);
+<<<<<<< HEAD
 
                 //gravar a materia prima no armazem da fabrica
                 Transporte transporte = viewPesquisaTransporte.getTransporte();
@@ -196,6 +208,27 @@ public class OuvinteViewPesquisaTransporte {
                 }
                 
                 
+=======
+                
+                //gravar a materia prima no armazem da fabrica
+                Transporte transporte = viewPesquisaTransporte.getTransporte();
+                ArmazemFabrica armazemFabrica = new ArmazemFabrica();
+                armazemFabrica.setFabrica(fabrica);
+                armazemFabrica.setMateriaPrima(transporte.getMateriaPrima());
+                armazemFabrica.setQuantidade(transporte.getQuantidade());
+                armazemFabricaController.setArmazemCadastro(armazemFabrica);
+                List materias = armazemFabricaController.buscarPorFabricaMateriaPrima(fabrica, transporte.getMateriaPrima());
+                if(materias.size()>0){
+                    armazemFabricaController.editar();
+                }else{
+                    armazemFabricaController.salvar();
+                }
+                               
+                //atualizar o estoque suprimento
+                EstoqueSuprimentoController estoqueSuprimentoController = new EstoqueSuprimentoController();
+                //estoqueSuprimentoController.setEstoqueCadastro(transporte.get);
+
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
             } catch (RuntimeException ex) {
                 ViewUtil.addMsgErro("Ocorreu um erro ao transportar o estoque." + ex.getMessage());
             }

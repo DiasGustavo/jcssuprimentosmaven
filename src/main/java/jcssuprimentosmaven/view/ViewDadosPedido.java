@@ -182,6 +182,12 @@ public class ViewDadosPedido extends javax.swing.JInternalFrame {
     public void setJogador(Jogador jogador) {
         this.jogador = jogador;
     }
+<<<<<<< HEAD
+=======
+    
+    
+    
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
     public Pedido preencherPedido() {
 

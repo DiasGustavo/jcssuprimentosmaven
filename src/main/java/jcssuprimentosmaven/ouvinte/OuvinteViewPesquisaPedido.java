@@ -160,7 +160,11 @@ public class OuvinteViewPesquisaPedido {
                     estoqueSuprimentoController.setEstoqueCadastro(estoque);
                     estoqueSuprimentoController.salvar();
                 }
+<<<<<<< HEAD
                 //Retirada do caixa da empresa
+=======
+                
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 EmpresaController empresaController = new EmpresaController();
                 List empresas = empresaController.buscarPorJogador(jogador);
                 Empresa empresa = (Empresa) empresas.get(0);

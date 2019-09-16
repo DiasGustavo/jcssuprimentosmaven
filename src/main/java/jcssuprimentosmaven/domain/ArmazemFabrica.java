@@ -50,11 +50,15 @@ public class ArmazemFabrica implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_armazem")
     private Long id;
+<<<<<<< HEAD
     
     @NotNull(message = "O campo registro é obrigatório")
     @Column(name = "registro")
     private Long registro;
     
+=======
+               
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     @NotNull(message="o campo quantidade da materia prima é obrigatório.")
     @DecimalMin(value="0.00", message="o campo quantidade da materia prima deve ser maior do que 0.00")
     @Digits(integer = 7, fraction = 2, message = "coloque um valor válido para a quantidade da materia prima")
@@ -83,6 +87,7 @@ public class ArmazemFabrica implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+<<<<<<< HEAD
 
     public Long getRegistro() {
         return registro;
@@ -91,6 +96,8 @@ public class ArmazemFabrica implements Serializable {
     public void setRegistro(Long registro) {
         this.registro = registro;
     }
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     
     public BigDecimal getQuantidade() {
         return quantidade;
@@ -118,7 +125,11 @@ public class ArmazemFabrica implements Serializable {
 
     @Override
     public String toString() {
+<<<<<<< HEAD
         return  fabrica.getNomeFantasia() + " - " + materiaPrima.getDescricao() + " - " + getQuantidade();
+=======
+        return "Armazém: " + fabrica.getNomeFantasia();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     }
     
     

@@ -26,8 +26,13 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
+<<<<<<< HEAD
                     <source>1.8</source>
                     <target>1.8</target>
+=======
+                    <source>1.6</source>
+                    <target>1.6</target>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 </configuration>
             </plugin>  
  
@@ -137,6 +142,7 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+<<<<<<< HEAD
         <!-- biblioteca para gráficos-->
         <dependency>
             <groupId>jfree</groupId>
@@ -187,5 +193,7 @@
             <artifactId>groovy-all</artifactId>
             <version>1.5.5</version>
         </dependency>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     </dependencies>
 </project>

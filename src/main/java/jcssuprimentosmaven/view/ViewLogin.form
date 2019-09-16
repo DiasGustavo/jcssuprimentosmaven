@@ -103,7 +103,11 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
+<<<<<<< HEAD
         <Property name="text" type="java.lang.String" value="Equipe:"/>
+=======
+        <Property name="text" type="java.lang.String" value="Usu&#xe1;rio:"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="senha">

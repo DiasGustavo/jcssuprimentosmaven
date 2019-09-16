@@ -98,6 +98,7 @@ public class TransporteDAO {
         return listaTransportes;
     }
     
+<<<<<<< HEAD
     public List<Transporte> buscarPorArmazemFabricaStatus(ArmazemFabrica armazemFabrica, String status){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         List<Transporte> listaTransportes = null;
@@ -115,6 +116,8 @@ public class TransporteDAO {
         return listaTransportes;
     }
     
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
      public List<Transporte> buscarPorDestino(String destino){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         List<Transporte> listaTransportes = null;

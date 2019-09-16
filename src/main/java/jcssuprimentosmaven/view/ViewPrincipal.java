@@ -7,11 +7,16 @@ package jcssuprimentosmaven.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+<<<<<<< HEAD
 import java.awt.Toolkit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+=======
+import java.util.Calendar;
+import java.util.Date;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -34,13 +39,19 @@ import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaMateriaPrima;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaMeioTransporte;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaMensagens;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaPedido;
+<<<<<<< HEAD
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaPessoa;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaProducao;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaProduto;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaRodada;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaSolicitacao;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaTransporte;
+<<<<<<< HEAD
 import jcssuprimentosmaven.util.GeraRelatorio;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
 /**
  *
@@ -75,8 +86,11 @@ public class ViewPrincipal extends javax.swing.JFrame {
     private ViewPesquisaPedido viewPesquisaPedido;
     private ViewPesquisaSolicitacao viewPesquisaSolicitacao;
     private ViewPesquisaProduto viewPesquisaProduto;
+<<<<<<< HEAD
     private PainelDemonstrativo painelExibicao;
     private ViewPesquisaPessoa viewPesquisaPessoa;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     private Jogador jogador;
 
     public ViewPrincipal() {
@@ -100,6 +114,7 @@ public class ViewPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setTitle("JCSSUPRIMENTOS - " + jogador.getLogin());
+<<<<<<< HEAD
         this.jogador = jogador;
         //captura as dimensoes da tela
         Toolkit t = Toolkit.getDefaultToolkit();
@@ -131,11 +146,25 @@ public class ViewPrincipal extends javax.swing.JFrame {
             desktopPane.add(viewFluxo);
             viewFluxo.setVisible(true);
             viewFluxo.setLocation((dimensao.width * 31) / 100, 0);
+=======
+
+        viewDadosAvisos = new ViewDadosAvisos();
+        desktopPane.add(viewDadosAvisos);
+        viewDadosAvisos.setVisible(true);
+        viewDadosAvisos.setPosicao();
+
+        if (jogador.getFuncao() == 1) {
+            //quando for participante
+            this.RelatorioMenu.setVisible(false);
+            this.CadastroMenu.setVisible(false);
+            viewDadosAvisos.getpDadosAvisosJ().setVisible(false);            
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         } else {
             //quando for Juiz
             //this.MinhaEmpresa.setVisible(false);
             this.Pesquisa.setVisible(false);
             this.CadastroMenu.setVisible(true);
+<<<<<<< HEAD
             //viewDadosAvisos.getpDadosAvisosP().setVisible(false);
             painelExibicao = new PainelDemonstrativo(jogador);
             painelExibicao.setLayout(new BorderLayout());
@@ -146,6 +175,9 @@ public class ViewPrincipal extends javax.swing.JFrame {
             desktopPane.add(painelExibicao);
             painelExibicao.fluxoEmpresas();
             painelExibicao.setVisible(true);
+=======
+            viewDadosAvisos.getpDadosAvisosP().setVisible(false);          
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         }
 
@@ -216,7 +248,10 @@ public class ViewPrincipal extends javax.swing.JFrame {
         CadastroMenu = new javax.swing.JMenu();
         CadRodadaMenuItem = new javax.swing.JMenuItem();
         CadJogadorMenuItem = new javax.swing.JMenuItem();
+<<<<<<< HEAD
         CadAlunoMenuItem = new javax.swing.JMenuItem();
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         CadEmpresaMenuItem = new javax.swing.JMenuItem();
         CadFabricaMenuItem = new javax.swing.JMenuItem();
         cadFabricaMenuItem = new javax.swing.JMenuItem();
@@ -242,9 +277,15 @@ public class ViewPrincipal extends javax.swing.JFrame {
         MensagensMenuItem = new javax.swing.JMenuItem();
         AvisosMenuItem = new javax.swing.JMenuItem();
         RelatorioMenu = new javax.swing.JMenu();
+<<<<<<< HEAD
         rSaudeFinanceira = new javax.swing.JMenuItem();
         rAlunos = new javax.swing.JMenuItem();
         rProducao = new javax.swing.JMenuItem();
+=======
+        cutMenuItem = new javax.swing.JMenuItem();
+        copyMenuItem = new javax.swing.JMenuItem();
+        pasteMenuItem = new javax.swing.JMenuItem();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         deleteMenuItem = new javax.swing.JMenuItem();
         Pesquisa = new javax.swing.JMenu();
         pesquisaMercado = new javax.swing.JMenuItem();
@@ -286,7 +327,11 @@ public class ViewPrincipal extends javax.swing.JFrame {
         });
         CadastroMenu.add(CadRodadaMenuItem);
 
+<<<<<<< HEAD
         CadJogadorMenuItem.setText("Equipe");
+=======
+        CadJogadorMenuItem.setText("Jogador");
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         CadJogadorMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadJogadorMenuItemActionPerformed(evt);
@@ -294,6 +339,7 @@ public class ViewPrincipal extends javax.swing.JFrame {
         });
         CadastroMenu.add(CadJogadorMenuItem);
 
+<<<<<<< HEAD
         CadAlunoMenuItem.setText("Aluno");
         CadAlunoMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -302,6 +348,8 @@ public class ViewPrincipal extends javax.swing.JFrame {
         });
         CadastroMenu.add(CadAlunoMenuItem);
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         CadEmpresaMenuItem.setText("Empresa");
         CadEmpresaMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -490,6 +538,7 @@ public class ViewPrincipal extends javax.swing.JFrame {
 
         RelatorioMenu.setMnemonic('e');
         RelatorioMenu.setText("Relatórios");
+<<<<<<< HEAD
 
         rSaudeFinanceira.setMnemonic('t');
         rSaudeFinanceira.setText("Saúde Financeira");
@@ -517,6 +566,21 @@ public class ViewPrincipal extends javax.swing.JFrame {
             }
         });
         RelatorioMenu.add(rProducao);
+=======
+        RelatorioMenu.setEnabled(false);
+
+        cutMenuItem.setMnemonic('t');
+        cutMenuItem.setText("Cut");
+        RelatorioMenu.add(cutMenuItem);
+
+        copyMenuItem.setMnemonic('y');
+        copyMenuItem.setText("Copy");
+        RelatorioMenu.add(copyMenuItem);
+
+        pasteMenuItem.setMnemonic('p');
+        pasteMenuItem.setText("Paste");
+        RelatorioMenu.add(pasteMenuItem);
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         deleteMenuItem.setMnemonic('d');
         deleteMenuItem.setText("Delete");
@@ -743,7 +807,11 @@ public class ViewPrincipal extends javax.swing.JFrame {
     private void CadArmazemDistribuicaoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadArmazemDistribuicaoMenuItemActionPerformed
         // TODO add your handling code here:
         viewPesquisaArmazemDistribuicao = new ViewPesquisaArmazemDistribuicao();
+<<<<<<< HEAD
         OuvinteViewPesquisaArmazemDistribuicao ouvinte = new OuvinteViewPesquisaArmazemDistribuicao(viewPesquisaArmazemDistribuicao, this.jogador);
+=======
+        OuvinteViewPesquisaArmazemDistribuicao ouvinte = new OuvinteViewPesquisaArmazemDistribuicao(viewPesquisaArmazemDistribuicao);
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         desktopPane.add(viewPesquisaArmazemDistribuicao);
         viewPesquisaArmazemDistribuicao.setVisible(true);
         viewPesquisaArmazemDistribuicao.setPosicao();
@@ -785,7 +853,11 @@ public class ViewPrincipal extends javax.swing.JFrame {
     private void CadPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadPedidoActionPerformed
         // TODO add your handling code here:
         viewPesquisaPedido = new ViewPesquisaPedido(this.jogador);
+<<<<<<< HEAD
         OuvinteViewPesquisaPedido ouvinte = new OuvinteViewPesquisaPedido(viewPesquisaPedido, this.jogador);
+=======
+        OuvinteViewPesquisaPedido ouvinte = new OuvinteViewPesquisaPedido(viewPesquisaPedido,this.jogador);
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         desktopPane.add(viewPesquisaPedido);
         viewPesquisaPedido.setVisible(true);
         viewPesquisaPedido.setPosicao();
@@ -793,8 +865,13 @@ public class ViewPrincipal extends javax.swing.JFrame {
 
     private void CadSolicitacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadSolicitacaoActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         viewPesquisaSolicitacao = new ViewPesquisaSolicitacao(this.jogador);
         OuvinteViewPesquisaSolicitacao ouvinte = new OuvinteViewPesquisaSolicitacao(viewPesquisaSolicitacao, this.jogador);
+=======
+        viewPesquisaSolicitacao = new ViewPesquisaSolicitacao();
+        OuvinteViewPesquisaSolicitacao ouvinte = new OuvinteViewPesquisaSolicitacao(viewPesquisaSolicitacao);
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         desktopPane.add(viewPesquisaSolicitacao);
         viewPesquisaSolicitacao.setVisible(true);
         viewPesquisaSolicitacao.setPosicao();
@@ -810,13 +887,18 @@ public class ViewPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_CadProdutoActionPerformed
 
     private void cadFabricaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadFabricaMenuItemActionPerformed
+<<<<<<< HEAD
         viewPesquisaArmazemFabrica = new ViewPesquisaArmazemFabrica(this.jogador);
+=======
+       viewPesquisaArmazemFabrica = new ViewPesquisaArmazemFabrica();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         OuvinteViewPesquisaArmazemFabrica ouvinte = new OuvinteViewPesquisaArmazemFabrica(viewPesquisaArmazemFabrica, this.jogador);
         desktopPane.add(viewPesquisaArmazemFabrica);
         viewPesquisaArmazemFabrica.setVisible(true);
         viewPesquisaArmazemFabrica.setPosicao();
     }//GEN-LAST:event_cadFabricaMenuItemActionPerformed
 
+<<<<<<< HEAD
     private void CadAlunoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadAlunoMenuItemActionPerformed
         viewPesquisaPessoa = new ViewPesquisaPessoa();
         OuvinteViewPesquisaPessoa ouvinte = new OuvinteViewPesquisaPessoa(viewPesquisaPessoa);
@@ -844,6 +926,8 @@ public class ViewPrincipal extends javax.swing.JFrame {
         saudeFinanceira.geradorDeRelatorios(caminho, parametros);
     }//GEN-LAST:event_rProducaoActionPerformed
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     public Jogador getJogador() {
         if (jogador == null) {
             jogador = new Jogador();
@@ -902,7 +986,10 @@ public class ViewPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu AjudaMenu;
     private javax.swing.JMenuItem AvisosMenuItem;
+<<<<<<< HEAD
     private javax.swing.JMenuItem CadAlunoMenuItem;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     private javax.swing.JMenuItem CadArmazemDistribuicaoMenuItem;
     private javax.swing.JMenuItem CadArmazemSuprimentoMenuItem;
     private javax.swing.JMenuItem CadDistribuidor;
@@ -929,17 +1016,28 @@ public class ViewPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem SairMenuItem;
     private javax.swing.JMenu SistemaMenu;
     private javax.swing.JMenuItem cadFabricaMenuItem;
+<<<<<<< HEAD
+=======
+    private javax.swing.JMenuItem copyMenuItem;
+    private javax.swing.JMenuItem cutMenuItem;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem empresaItem;
     private javax.swing.JMenuItem estoqueDistribuicaoItem;
     private javax.swing.JMenuItem estoqueSuprimentoItem;
     private javax.swing.JMenuBar menuBar;
+<<<<<<< HEAD
     private javax.swing.JMenuItem pesquisaMercado;
     private javax.swing.JMenuItem producaoItem;
     private javax.swing.JMenuItem rAlunos;
     private javax.swing.JMenuItem rProducao;
     private javax.swing.JMenuItem rSaudeFinanceira;
+=======
+    private javax.swing.JMenuItem pasteMenuItem;
+    private javax.swing.JMenuItem pesquisaMercado;
+    private javax.swing.JMenuItem producaoItem;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     private javax.swing.JMenuItem sobreMenuItem;
     private javax.swing.JMenuItem transporteItem;
     // End of variables declaration//GEN-END:variables

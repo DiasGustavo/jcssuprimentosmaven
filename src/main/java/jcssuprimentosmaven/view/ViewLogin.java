@@ -52,7 +52,11 @@ public class ViewLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+<<<<<<< HEAD
         usuario.setText("Equipe:");
+=======
+        usuario.setText("Usuário:");
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         senha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         senha.setText("Senha:");

@@ -28,6 +28,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pDadosJuiz" max="32767" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="logo" min="-2" pref="124" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -36,6 +37,9 @@
                       <Component id="lTotal" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+=======
+              <Component id="logo" min="-2" pref="124" max="-2" attributes="0"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -46,6 +50,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pDadosJuiz" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Group type="102" attributes="0">
                       <Component id="logo" min="-2" pref="103" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -56,6 +61,11 @@
                   </Group>
               </Group>
               <EmptySpace pref="15" max="32767" attributes="0"/>
+=======
+                  <Component id="logo" min="-2" pref="103" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,9 +111,14 @@
                               <Component id="lQuantidade" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lArmazem" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lMeioTransporte" alignment="0" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <Component id="lStatus" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+=======
+                          </Group>
+                          <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jtxQuantidade" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
@@ -112,7 +127,10 @@
                                   <Component id="cbArmazem" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jtxDescricao" min="-2" pref="247" max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <Component id="cbStatus" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -143,12 +161,16 @@
                       <Component id="lQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtxQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
+=======
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtxDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -229,7 +251,11 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lArmazem">
           <Properties>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="Armaz&#xe9;m de Distribui&#xe7;&#xe3;o"/>
+=======
+            <Property name="text" type="java.lang.String" value="Armaz&#xe9;m"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
             <Property name="toolTipText" type="java.lang.String" value="Armaz&#xe9;m de destino"/>
           </Properties>
         </Component>
@@ -255,9 +281,12 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jtxQuantidade">
+<<<<<<< HEAD
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtxQuantidadeKeyPressed"/>
           </Events>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         </Component>
         <Component class="javax.swing.JLabel" name="lMeioTransporte">
           <Properties>
@@ -273,6 +302,7 @@
             </Property>
           </Properties>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JLabel" name="lStatus">
           <Properties>
             <Property name="text" type="java.lang.String" value="Status"/>
@@ -291,10 +321,13 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="logo">
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JLabel" name="lValor">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -314,5 +347,7 @@
         <Property name="text" type="java.lang.String" value="Total"/>
       </Properties>
     </Component>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
   </SubComponents>
 </Form>

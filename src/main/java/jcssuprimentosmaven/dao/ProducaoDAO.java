@@ -6,7 +6,10 @@
 package jcssuprimentosmaven.dao;
 
 import java.util.List;
+<<<<<<< HEAD
 import jcssuprimentosmaven.domain.ArmazemFabrica;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.domain.Fabrica;
 import jcssuprimentosmaven.domain.Producao;
 import jcssuprimentosmaven.util.HibernateUtil;
@@ -87,7 +90,11 @@ public class ProducaoDAO {
         List<Producao> producoes = null;
         
         try{
+<<<<<<< HEAD
             Query consulta = sessao.getNamedQuery("Producao.buscarPorArmazemFabrica");
+=======
+            Query consulta = sessao.getNamedQuery("Producao.buscarPorFabrica");
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
             consulta.setLong("fabrica", fabrica.getId());
             producoes = consulta.list();
         }catch(RuntimeException ex){
@@ -98,6 +105,7 @@ public class ProducaoDAO {
         return producoes;
     }
     
+<<<<<<< HEAD
      public Producao buscarPorArmazem(ArmazemFabrica armazem){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         Producao producao = null;
@@ -114,6 +122,8 @@ public class ProducaoDAO {
         return producao;
     }
     
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     public void editar(Producao producao){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         Transaction transacao = null;

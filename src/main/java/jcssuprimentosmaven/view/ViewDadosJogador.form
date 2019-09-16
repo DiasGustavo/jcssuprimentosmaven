@@ -4,7 +4,11 @@
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
     <Property name="defaultCloseOperation" type="int" value="1"/>
+<<<<<<< HEAD
     <Property name="title" type="java.lang.String" value="Cadastro - Equipe"/>
+=======
+    <Property name="title" type="java.lang.String" value="Cadastro - Jogador"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -54,7 +58,11 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+<<<<<<< HEAD
             <TitledBorder title="Dados da Equipe">
+=======
+            <TitledBorder title="Dados do Jogador">
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
               <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
             </TitledBorder>
           </Border>

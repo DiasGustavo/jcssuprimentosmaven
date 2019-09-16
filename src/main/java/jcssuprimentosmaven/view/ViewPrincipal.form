@@ -44,12 +44,17 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="CadJogadorMenuItem">
               <Properties>
+<<<<<<< HEAD
                 <Property name="text" type="java.lang.String" value="Equipe"/>
+=======
+                <Property name="text" type="java.lang.String" value="Jogador"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadJogadorMenuItemActionPerformed"/>
               </Events>
             </MenuItem>
+<<<<<<< HEAD
             <MenuItem class="javax.swing.JMenuItem" name="CadAlunoMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Aluno"/>
@@ -58,6 +63,8 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadAlunoMenuItemActionPerformed"/>
               </Events>
             </MenuItem>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
             <MenuItem class="javax.swing.JMenuItem" name="CadEmpresaMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Empresa"/>
@@ -254,6 +261,7 @@
           <Properties>
             <Property name="mnemonic" type="int" value="101"/>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
+<<<<<<< HEAD
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="rSaudeFinanceira">
@@ -282,6 +290,28 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rProducaoActionPerformed"/>
               </Events>
+=======
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="cutMenuItem">
+              <Properties>
+                <Property name="mnemonic" type="int" value="116"/>
+                <Property name="text" type="java.lang.String" value="Cut"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="copyMenuItem">
+              <Properties>
+                <Property name="mnemonic" type="int" value="121"/>
+                <Property name="text" type="java.lang.String" value="Copy"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="pasteMenuItem">
+              <Properties>
+                <Property name="mnemonic" type="int" value="112"/>
+                <Property name="text" type="java.lang.String" value="Paste"/>
+              </Properties>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="deleteMenuItem">
               <Properties>

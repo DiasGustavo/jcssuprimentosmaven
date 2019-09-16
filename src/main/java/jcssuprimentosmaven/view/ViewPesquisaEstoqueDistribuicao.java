@@ -42,7 +42,10 @@ public class ViewPesquisaEstoqueDistribuicao extends javax.swing.JInternalFrame 
         this.jogador = usuario;
         if(this.jogador.getFuncao()==1){
             this.bNovo.setEnabled(false);
+<<<<<<< HEAD
             this.bExcluir.setEnabled(false);
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         }
     }
     

@@ -79,6 +79,7 @@
                                   <Component id="bExcluir" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+<<<<<<< HEAD
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -99,6 +100,25 @@
                               </Group>
                               <Component id="cbFabrica" alignment="0" min="-2" pref="284" max="-2" attributes="0"/>
                               <Component id="cbDescricao" alignment="0" max="32767" attributes="0"/>
+=======
+                          <EmptySpace pref="47" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lDescricao" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lQuantidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jtxQuantidade" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jtxDescricao" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cbFabrica" pref="284" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                           </Group>
                       </Group>
                   </Group>
@@ -108,6 +128,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -127,13 +148,30 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jtxVlUnitario" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lpunitario" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lFabrica" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbFabrica" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtxQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="cbDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+=======
+                      <Component id="jtxDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="bNovo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="bCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -141,7 +179,11 @@
                       <Component id="bGravar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="bEditar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace pref="40" max="32767" attributes="0"/>
+=======
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
               </Group>
           </Group>
         </DimensionLayout>
@@ -215,6 +257,11 @@
             <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
+<<<<<<< HEAD
+=======
+        <Component class="javax.swing.JTextField" name="jtxDescricao">
+        </Component>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         <Component class="javax.swing.JLabel" name="lQuantidade">
           <Properties>
             <Property name="text" type="java.lang.String" value="Quantidade"/>
@@ -222,6 +269,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtxQuantidade">
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JComboBox" name="cbDescricao">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -242,6 +290,8 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtxVlUnitario">
         </Component>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="logo">

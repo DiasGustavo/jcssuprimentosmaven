@@ -6,7 +6,10 @@
 package jcssuprimentosmaven.dao;
 
 import java.util.List;
+<<<<<<< HEAD
 import jcssuprimentosmaven.domain.ArmazemDistribuicao;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.domain.Solicitacao;
 import jcssuprimentosmaven.util.HibernateUtil;
 import org.hibernate.Query;
@@ -65,6 +68,7 @@ public class SolicitacaoDAO {
         return solicitacao;
     }
     
+<<<<<<< HEAD
     public List<Solicitacao> buscarPorArmazemStatus(ArmazemDistribuicao armazem, String status){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         List solicitacoes = null;
@@ -81,6 +85,8 @@ public class SolicitacaoDAO {
         return solicitacoes;
     }
     
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     public void editar(Solicitacao solicitacao){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         Transaction transacao = null;

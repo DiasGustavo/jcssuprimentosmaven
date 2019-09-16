@@ -14,7 +14,10 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import jcssuprimentosmaven.domain.ArmazemFabrica;
+<<<<<<< HEAD
 import jcssuprimentosmaven.domain.Jogador;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.ouvinte.OuvinteViewDadosArmazemFabrica;
 
 
@@ -28,7 +31,10 @@ public class ViewPesquisaArmazemFabrica extends javax.swing.JInternalFrame {
 
     private ViewDadosArmazemFabrica viewDadosArmazem;
     private List armazens;
+<<<<<<< HEAD
     private Jogador jogador;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     
 
     /**
@@ -37,11 +43,14 @@ public class ViewPesquisaArmazemFabrica extends javax.swing.JInternalFrame {
     public ViewPesquisaArmazemFabrica() {
         initComponents();
     }
+<<<<<<< HEAD
     
     public ViewPesquisaArmazemFabrica(Jogador jogador) {
         initComponents();
         this.jogador = jogador;
     }
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
     public void setPosicao() {
         Dimension d = this.getDesktopPane().getSize();
@@ -50,7 +59,11 @@ public class ViewPesquisaArmazemFabrica extends javax.swing.JInternalFrame {
 
     private void abrirViewDadosArmazem(ArmazemFabrica armazem, String acao) {
        // if (viewDadosJogador == null) {
+<<<<<<< HEAD
             viewDadosArmazem = new ViewDadosArmazemFabrica(this.jogador);
+=======
+            viewDadosArmazem = new ViewDadosArmazemFabrica();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
             OuvinteViewDadosArmazemFabrica ouvinte = new OuvinteViewDadosArmazemFabrica(viewDadosArmazem);
             viewDadosArmazem.setAcao(acao);            
             this.getParent().add(viewDadosArmazem);

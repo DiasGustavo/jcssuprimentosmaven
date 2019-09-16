@@ -7,7 +7,10 @@ package jcssuprimentosmaven.controller;
 
 import java.util.List;
 import jcssuprimentosmaven.dao.SolicitacaoDAO;
+<<<<<<< HEAD
 import jcssuprimentosmaven.domain.ArmazemDistribuicao;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.domain.Solicitacao;
 import jcssuprimentosmaven.util.ViewUtil;
 /**
@@ -87,6 +90,7 @@ public class SolicitacaoController {
         }
     }
     
+<<<<<<< HEAD
     public List<Solicitacao> buscarPorArmazemStatus(ArmazemDistribuicao armazem, String status){
         List<Solicitacao> solicitacoes = null;
         try{
@@ -98,6 +102,8 @@ public class SolicitacaoController {
         return solicitacoes;
     }
     
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     public void editar(){
         try{
             SolicitacaoDAO sdao = new SolicitacaoDAO();

@@ -26,9 +26,16 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import jcssuprimentosmaven.converter.ArmazemDistribuicaoConverter;
+<<<<<<< HEAD
 import jcssuprimentosmaven.converter.MeioTransporteConverter;
 import jcssuprimentosmaven.converter.ProdutoConverter;
 import org.hibernate.validator.constraints.NotEmpty;
+=======
+import jcssuprimentosmaven.converter.ArmazemSuprimentoConverter;
+import jcssuprimentosmaven.converter.MateriaPrimaConverter;
+import jcssuprimentosmaven.converter.MeioTransporteConverter;
+import jcssuprimentosmaven.converter.ProdutoConverter;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
 /**
  *
@@ -38,8 +45,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "tbl_solicitacao")
 @NamedQueries({
     @NamedQuery(name = "Solicitacao.listar", query = "SELECT solicitacao FROM Solicitacao solicitacao"),
+<<<<<<< HEAD
     @NamedQuery(name = "Solicitacao.buscarPorCodigo", query = "SELECT solicitacao FROM Solicitacao solicitacao WHERE solicitacao.id = :codigo"),
     @NamedQuery(name = "Solicitacao.buscarPorArmazemStatus", query = "SELECT solicitacao FROM Solicitacao solicitacao WHERE solicitacao.armazemDistribuicao = :armazem AND solicitacao.status = :status")
+=======
+    @NamedQuery(name = "Solicitacao.buscarPorCodigo", query = "SELECT solicitacao FROM Solicitacao solicitacao WHERE solicitacao.id = :codigo")
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 })
 public class Solicitacao implements Serializable {
     @Id
@@ -47,6 +58,10 @@ public class Solicitacao implements Serializable {
     @Column(name = "cod_solicitacao")
     private Long id;
     
+<<<<<<< HEAD
+=======
+    @Size(min = 1, max = 100)
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     @Column(name = "descricao", length = 100)
     private String descricao;
     
@@ -82,11 +97,14 @@ public class Solicitacao implements Serializable {
     @Digits(integer = 7, fraction = 2, message = "coloque um valor válido para o campo valor")
     @Column(name = "valor", precision = 9, scale = 2, nullable = false)
     private BigDecimal valor;
+<<<<<<< HEAD
     
     @NotEmpty(message = "O campo Status é obrigatório")
     @Size(min = 1, max = 20, message = "O campo Status deve ter entre 1 e 20 caracteres")
     @Column(name = "status", length = 20)
     private String status;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
     public Long getId() {
         return id;
@@ -143,6 +161,7 @@ public class Solicitacao implements Serializable {
     public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
     }
+<<<<<<< HEAD
 
     public String getStatus() {
         return status;
@@ -151,6 +170,8 @@ public class Solicitacao implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     
 
     @Override

@@ -37,8 +37,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 @NamedQueries({
     @NamedQuery(name = "Transporte.listar", query = "SELECT transporte FROM Transporte transporte"),
     @NamedQuery(name = "Transporte.buscarPorCodigo", query = "SELECT transporte FROM Transporte transporte WHERE transporte.id =:codigo"),
+<<<<<<< HEAD
     @NamedQuery(name = "Transporte.buscarPorArmazemFabrica", query = "SELECT transporte FROM Transporte transporte WHERE transporte.armazemFabrica =:armazemFabrica"),
     @NamedQuery(name = "Transporte.buscarPorArmazemFabricaStatus", query = "SELECT transporte FROM Transporte transporte WHERE transporte.armazemFabrica = :armazemFabrica AND transporte.status = :status")
+=======
+    @NamedQuery(name = "Transporte.buscarPorArmazemFabrica", query = "SELECT transporte FROM Transporte transporte WHERE transporte.armazemFabrica =:armazemFabrica")
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     
 })
 public class Transporte {

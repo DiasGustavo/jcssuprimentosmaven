@@ -53,6 +53,7 @@ public class OuvinteViewPesquisaArmazemFabrica {
                     List armazens = armazemController.getListaArmazens();
                     viewPesquisaArmazem.listar(armazens);
                 } else {
+<<<<<<< HEAD
                     ArmazemFabricaController armazemFabricaController = new ArmazemFabricaController();
                     FabricaController fabricaController = new FabricaController();
                     EmpresaController empresaController = new EmpresaController();
@@ -62,6 +63,17 @@ public class OuvinteViewPesquisaArmazemFabrica {
                     Fabrica fabrica = (Fabrica)fabricas.get(0);
                     List armazens = armazemFabricaController.buscarPorFabrica(fabrica);
                     viewPesquisaArmazem.listar(armazens);
+=======
+                    /*ArmazemFabricaController armazemFabricaController = new ArmazemFabricaController();
+                    FabricaController fabricaController = new FabricaController();
+                    EmpresaController empresaController = new EmpresaController();
+                    List  = empresaController.buscarPorJogador(jogadorTeste);
+                    Empresa empresa = (Empresa)empresas.get(0);
+                    List fabricas = fabricaController.buscarPorJogador(empresa);
+                    Fabrica fabrica = (Fabrica)fabricas.get(0);
+                    List armazens = armazemFabricaController.buscarPorFabrica(fabrica);
+                    viewPesquisaArmazem.listar(armazens);*/
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 }
             } catch (RuntimeException ex) {
                 ViewUtil.addMsgErro("Não existe armazens para listar " + ex.getMessage());

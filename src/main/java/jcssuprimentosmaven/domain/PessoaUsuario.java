@@ -48,7 +48,14 @@ public class PessoaUsuario extends Pessoa {
         this.fabrica = fabrica;
     }
 
+<<<<<<< HEAD
   
+=======
+    @Override
+    public String toString() {
+        return "PessoaUsuario{" + "fabrica=" + fabrica + " nome: " +this.getNome()+" email: "+ this.getEmail() + '}';
+    }
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
     
     

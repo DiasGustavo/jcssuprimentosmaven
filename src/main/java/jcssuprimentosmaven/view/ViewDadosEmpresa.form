@@ -145,7 +145,11 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lParticipante">
           <Properties>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="Equipe"/>
+=======
+            <Property name="text" type="java.lang.String" value="Participante"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="bNovo">

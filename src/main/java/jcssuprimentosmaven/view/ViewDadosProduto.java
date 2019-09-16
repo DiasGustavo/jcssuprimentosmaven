@@ -98,7 +98,11 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
     public Produto preencherProduto() {
 
         produto.setQuantidade(new BigDecimal(this.jtxQuantidade.getText()));
+<<<<<<< HEAD
         produto.setDescricao((String)this.cbDescricao.getSelectedItem());
+=======
+        produto.setDescricao(this.jtxDescricao.getText());
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         produto.setFabrica((Fabrica) this.cbFabrica.getSelectedItem());        
 
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -121,7 +125,11 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
         this.limparCampos();
         //if (juiz != null) {
         this.jtxQuantidade.setText(produto.getQuantidade().toEngineeringString());
+<<<<<<< HEAD
         this.cbDescricao.setSelectedItem((String)produto.getDescricao());
+=======
+        this.jtxDescricao.setText(produto.getDescricao());
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         this.cbFabrica.setSelectedItem(produto.getFabrica());        
         //} 
     }
@@ -148,7 +156,11 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
 
     public void limparCampos() {
         this.jtxQuantidade.setText(null);
+<<<<<<< HEAD
         this.cbDescricao.setSelectedIndex(0);
+=======
+        this.jtxDescricao.setText(null);
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         this.cbFabrica.setSelectedIndex(0);
     }
 
@@ -180,11 +192,17 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
         lFabrica = new javax.swing.JLabel();
         cbFabrica = new javax.swing.JComboBox();
         lDescricao = new javax.swing.JLabel();
+<<<<<<< HEAD
         lQuantidade = new javax.swing.JLabel();
         jtxQuantidade = new javax.swing.JTextField();
         cbDescricao = new javax.swing.JComboBox();
         lpunitario = new javax.swing.JLabel();
         jtxVlUnitario = new javax.swing.JTextField();
+=======
+        jtxDescricao = new javax.swing.JTextField();
+        lQuantidade = new javax.swing.JLabel();
+        jtxQuantidade = new javax.swing.JTextField();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         logo = new javax.swing.JLabel();
 
         setClosable(true);
@@ -226,6 +244,7 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
 
         lQuantidade.setText("Quantidade");
 
+<<<<<<< HEAD
         cbDescricao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione...", "Calçados" }));
         cbDescricao.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -235,6 +254,8 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
 
         lpunitario.setText("Preço Unitário");
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         javax.swing.GroupLayout pDadosJuizLayout = new javax.swing.GroupLayout(pDadosJuiz);
         pDadosJuiz.setLayout(pDadosJuizLayout);
         pDadosJuizLayout.setHorizontalGroup(
@@ -255,6 +276,7 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
                                 .addComponent(bEditar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(bExcluir)))
+<<<<<<< HEAD
                         .addContainerGap())
                     .addGroup(pDadosJuizLayout.createSequentialGroup()
                         .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,10 +293,26 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
                                 .addContainerGap())
                             .addComponent(cbFabrica, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbDescricao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+=======
+                        .addContainerGap(47, Short.MAX_VALUE))
+                    .addGroup(pDadosJuizLayout.createSequentialGroup()
+                        .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lDescricao)
+                            .addComponent(lQuantidade))
+                        .addGap(58, 58, 58)
+                        .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jtxQuantidade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pDadosJuizLayout.createSequentialGroup()
+                                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jtxDescricao, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbFabrica, 0, 284, Short.MAX_VALUE))
+                                .addContainerGap())))))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         );
         pDadosJuizLayout.setVerticalGroup(
             pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pDadosJuizLayout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pDadosJuizLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -295,13 +333,32 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
                     .addComponent(lDescricao)
                     .addComponent(cbDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
+=======
+                .addGap(17, 17, 17)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lFabrica)
+                    .addComponent(cbFabrica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lQuantidade)
+                    .addComponent(jtxQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lDescricao)
+                    .addComponent(jtxDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bNovo)
                     .addComponent(bCancelar)
                     .addComponent(bExcluir)
                     .addComponent(bGravar)
                     .addComponent(bEditar))
+<<<<<<< HEAD
                 .addContainerGap(40, Short.MAX_VALUE))
+=======
+                .addContainerGap(19, Short.MAX_VALUE))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -338,10 +395,14 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed
+<<<<<<< HEAD
     /**
      * Calcula automaticamente a quantidade disponível de produtos mediante a quantidade em produção.
      * @param evt 
      */
+=======
+
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     private void cbFabricaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbFabricaFocusLost
         Fabrica fabrica = (Fabrica) cbFabrica.getSelectedItem();
 
@@ -354,10 +415,13 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
         this.jtxQuantidade.setText(produtosTemp.toString());
     }//GEN-LAST:event_cbFabricaFocusLost
 
+<<<<<<< HEAD
     private void cbDescricaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbDescricaoFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_cbDescricaoFocusLost
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton bCancelar;
@@ -365,15 +429,24 @@ public class ViewDadosProduto extends javax.swing.JInternalFrame {
     protected javax.swing.JButton bExcluir;
     protected javax.swing.JButton bGravar;
     protected javax.swing.JButton bNovo;
+<<<<<<< HEAD
     private javax.swing.JComboBox cbDescricao;
     private javax.swing.JComboBox cbFabrica;
     private javax.swing.JTextField jtxQuantidade;
     private javax.swing.JTextField jtxVlUnitario;
+=======
+    private javax.swing.JComboBox cbFabrica;
+    private javax.swing.JTextField jtxDescricao;
+    private javax.swing.JTextField jtxQuantidade;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     private javax.swing.JLabel lDescricao;
     private javax.swing.JLabel lFabrica;
     private javax.swing.JLabel lQuantidade;
     private javax.swing.JLabel logo;
+<<<<<<< HEAD
     private javax.swing.JLabel lpunitario;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     private javax.swing.JPanel pDadosJuiz;
     // End of variables declaration//GEN-END:variables
 }

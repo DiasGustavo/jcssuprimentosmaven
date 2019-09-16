@@ -139,10 +139,13 @@ public class ViewPesquisaProduto extends javax.swing.JInternalFrame {
         bPesquisaTodos.addActionListener(ouvinte);
     }
     
+<<<<<<< HEAD
     /*public void bSolicitacaoAddActionListener(ActionListener ouvinte){
         bSolicitacao.addActionListener(ouvinte);
     }*/
     
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     public int pedirConfirmacao(String mensagem, String titulo, int tipo) {
         int resposta = JOptionPane.showConfirmDialog(null, mensagem, titulo, tipo);
         return resposta;
@@ -249,17 +252,29 @@ public class ViewPesquisaProduto extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+<<<<<<< HEAD
                         .addComponent(bNovo))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+=======
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bNovo, javax.swing.GroupLayout.Alignment.TRAILING)
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(bPesquisaTodos)
                                 .addGap(32, 32, 32)
                                 .addComponent(bAlterar)
                                 .addGap(41, 41, 41)
+<<<<<<< HEAD
                                 .addComponent(bExcluir))
                             .addComponent(spListaJuizes, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE))))
+=======
+                                .addComponent(bExcluir))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(spListaJuizes, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(131, 131, 131)
@@ -271,7 +286,11 @@ public class ViewPesquisaProduto extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bNovo)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 .addComponent(spListaJuizes, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

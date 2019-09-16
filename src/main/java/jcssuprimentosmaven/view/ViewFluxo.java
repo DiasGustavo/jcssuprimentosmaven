@@ -9,10 +9,17 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import jcssuprimentosmaven.domain.Jogador;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaArmazemDistribuicao;
+<<<<<<< HEAD
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaArmazemFabrica;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaArmazemSuprimento;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaDistribuidor;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaEstoqueDistribuicao;
+=======
+import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaArmazemSuprimento;
+import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaDistribuidor;
+import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaEstoqueDistribuicao;
+import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaEstoqueSuprimento;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaFabrica;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaMateriaPrima;
 import jcssuprimentosmaven.ouvinte.OuvinteViewPesquisaPedido;
@@ -275,7 +282,11 @@ public class ViewFluxo extends javax.swing.JInternalFrame {
 
     private void lArmazemDistribuicaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lArmazemDistribuicaoMouseClicked
         viewPesquisaArmazemDistribuicao = new ViewPesquisaArmazemDistribuicao(this.jogador);
+<<<<<<< HEAD
         OuvinteViewPesquisaArmazemDistribuicao ouvinte = new OuvinteViewPesquisaArmazemDistribuicao(viewPesquisaArmazemDistribuicao,this.jogador);
+=======
+        OuvinteViewPesquisaArmazemDistribuicao ouvinte = new OuvinteViewPesquisaArmazemDistribuicao(viewPesquisaArmazemDistribuicao);
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         this.getParent().add(viewPesquisaArmazemDistribuicao);
         viewPesquisaArmazemDistribuicao.setVisible(true);
         viewPesquisaArmazemDistribuicao.setPosicao();
@@ -308,19 +319,32 @@ public class ViewFluxo extends javax.swing.JInternalFrame {
         this.getParent().add(viewPesquisaMeioTransporte);
         viewPesquisaMeioTransporte.setVisible(true);
         viewPesquisaMeioTransporte.setPosicao();*/
+<<<<<<< HEAD
         viewPesquisaSolicitacao = new ViewPesquisaSolicitacao(this.jogador);
         OuvinteViewPesquisaSolicitacao ouvinte = new OuvinteViewPesquisaSolicitacao(viewPesquisaSolicitacao, this.jogador);
+=======
+        viewPesquisaSolicitacao = new ViewPesquisaSolicitacao();
+        OuvinteViewPesquisaSolicitacao ouvinte = new OuvinteViewPesquisaSolicitacao(viewPesquisaSolicitacao);
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         this.getParent().add(viewPesquisaSolicitacao);
         viewPesquisaSolicitacao.setVisible(true);
         viewPesquisaSolicitacao.setPosicao();
     }//GEN-LAST:event_lTransporteDistribuicaoMouseClicked
 
     private void lArmazemFabricaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lArmazemFabricaMouseClicked
+<<<<<<< HEAD
         viewPesquisaArmazemFabrica = new ViewPesquisaArmazemFabrica(this.jogador);
         OuvinteViewPesquisaArmazemFabrica ouvinte = new OuvinteViewPesquisaArmazemFabrica(viewPesquisaArmazemFabrica,this.jogador);
         this.getParent().add(viewPesquisaArmazemFabrica);
         viewPesquisaArmazemFabrica.setVisible(true);
         viewPesquisaArmazemFabrica.setPosicao();
+=======
+        /*viewPesquisaArmazemFabrica = new ViewPesquisaArmazemFabrica();
+        OuvinteViewPesquisaArmazemFabrica ouvinte = new OuvinteViewPesquisaArmazemFabrica(viewPesquisaArmazemFabrica,this.jogador);
+        this.getParent().add(viewPesquisaArmazemFabrica);
+        viewPesquisaArmazemFabrica.setVisible(true);
+        viewPesquisaArmazemFabrica.setPosicao();*/
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     }//GEN-LAST:event_lArmazemFabricaMouseClicked
 
 

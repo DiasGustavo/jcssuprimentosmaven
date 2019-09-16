@@ -9,7 +9,10 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
+<<<<<<< HEAD
 import java.math.RoundingMode;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import java.util.*;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -22,6 +25,10 @@ import javax.validation.ValidatorFactory;
 import jcssuprimentosmaven.controller.ArmazemFabricaController;
 import jcssuprimentosmaven.controller.EmpresaController;
 import jcssuprimentosmaven.controller.FabricaController;
+<<<<<<< HEAD
+=======
+import jcssuprimentosmaven.controller.ProducaoController;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.dao.ArmazemFabricaDAO;
 import jcssuprimentosmaven.domain.ArmazemFabrica;
 import jcssuprimentosmaven.domain.Empresa;
@@ -46,8 +53,11 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
     private List armazens;
     private List matB;
     private Jogador jogador;
+<<<<<<< HEAD
     private Fabrica fabrica;
     private BigDecimal custo;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
     /* para carregar o enum no combobox tem que editar a propriedade
      *  Model na guia propriedades e adicionar new javax.swing.DefaultComboBoxModel(StatusEnum.values())
@@ -72,9 +82,12 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
     public ViewDadosProducao(Jogador jogador) {
         initComponents();
         this.jogador = jogador;
+<<<<<<< HEAD
         this.lQtdCouro.setVisible(false);
         this.lQtdPlastico.setVisible(false);
         
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         //carrregar os armazens
         ArmazemFabricaController armazemFabricaController = new ArmazemFabricaController();
         FabricaController fabricaController = new FabricaController();
@@ -82,8 +95,12 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
         List empresas = empresaController.buscarPorJogador(jogador);
         Empresa empresa = (Empresa) empresas.get(0);
         List fabricas = fabricaController.buscarPorEmpresa(empresa);
+<<<<<<< HEAD
         Fabrica fabrica = (Fabrica) fabricas.get(0); 
         this.fabrica = fabrica;
+=======
+        Fabrica fabrica = (Fabrica) fabricas.get(0);        
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         this.setArmazens(armazemFabricaController.buscarPorFabrica(fabrica));
         
         DefaultComboBoxModel defaultComboBoxModelArmazem = new DefaultComboBoxModel(this.getArmazens().toArray());
@@ -190,7 +207,10 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
         producao.setQuantidadeMateriaA(new BigDecimal(this.jtxQtdA.getText()));
         producao.setQuantidadeMateriaB(new BigDecimal(this.jtxQtdB.getText()));
         producao.setArmazemFabrica((ArmazemFabrica) this.cbArmazem.getSelectedItem());
+<<<<<<< HEAD
         producao.setProdutos(new BigDecimal(this.jtxProdutos.getText()));
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
@@ -213,9 +233,15 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
         //if (juiz != null) {
         this.jtxQtdA.setText(producao.getQuantidadeMateriaA().toEngineeringString());
         this.jtxQtdB.setText(producao.getQuantidadeMateriaB().toEngineeringString());
+<<<<<<< HEAD
         this.jtxProdutos.setText(producao.getProdutos().toEngineeringString());
         this.cbArmazem.setSelectedItem(producao.getArmazemFabrica());
         
+=======
+        BigDecimal produtos = producao.getQuantidadeMateriaA().multiply(new BigDecimal("0.4")).add(producao.getQuantidadeMateriaB().multiply(new BigDecimal("0.6")));
+        this.jtxProdutos.setText(produtos.toEngineeringString());
+        this.cbArmazem.setSelectedItem(producao.getArmazemFabrica());
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         //} 
     }
@@ -286,10 +312,14 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
         lQtdB = new javax.swing.JLabel();
         jtxQtdB = new javax.swing.JTextField();
         lProducao = new javax.swing.JLabel();
+<<<<<<< HEAD
         lQtdCouro = new javax.swing.JLabel();
         lQtdPlastico = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         lTotalProducao = new javax.swing.JLabel();
+=======
+        logo = new javax.swing.JLabel();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -334,13 +364,21 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
         lQtdA.setText("Qtd Couro");
         lQtdA.setToolTipText("Quantidade de Couro");
 
+<<<<<<< HEAD
         lMatA.setText("Mat. Couro");
+=======
+        lMatA.setText("Mat. A");
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         lMatA.setToolTipText("Couro");
 
         cbMatA.setMaximumRowCount(1);
         cbMatA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione..." }));
 
+<<<<<<< HEAD
         lMatB.setText("Mat. Plástico");
+=======
+        lMatB.setText("Mat. B");
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         lMatB.setToolTipText("Plástico");
 
         cbMatB.setMaximumRowCount(1);
@@ -357,10 +395,13 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
 
         lProducao.setText("Produção");
 
+<<<<<<< HEAD
         lQtdCouro.setText("jLabel1");
 
         lQtdPlastico.setText("jLabel2");
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         javax.swing.GroupLayout pDadosJuizLayout = new javax.swing.GroupLayout(pDadosJuiz);
         pDadosJuiz.setLayout(pDadosJuizLayout);
         pDadosJuizLayout.setHorizontalGroup(
@@ -390,6 +431,7 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
                         .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(cbArmazem, javax.swing.GroupLayout.Alignment.LEADING, 0, 284, Short.MAX_VALUE)
+<<<<<<< HEAD
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pDadosJuizLayout.createSequentialGroup()
                                     .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(cbMatA, 0, 168, Short.MAX_VALUE)
@@ -399,6 +441,10 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
                                         .addComponent(lQtdCouro)
                                         .addComponent(lQtdPlastico))
                                     .addGap(0, 0, Short.MAX_VALUE)))
+=======
+                                .addComponent(cbMatA, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbMatB, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pDadosJuizLayout.createSequentialGroup()
                                 .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jtxProdutos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -423,6 +469,7 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lMatA)
+<<<<<<< HEAD
                     .addComponent(cbMatA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lQtdCouro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -430,6 +477,13 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
                     .addComponent(lMatB)
                     .addComponent(cbMatB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lQtdPlastico))
+=======
+                    .addComponent(cbMatA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lMatB)
+                    .addComponent(cbMatB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 .addGap(15, 15, 15)
                 .addGroup(pDadosJuizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lQtdA)
@@ -453,9 +507,12 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+<<<<<<< HEAD
         lTotalProducao.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lTotalProducao.setText("Custo:");
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -464,10 +521,15 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(pDadosJuiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lTotalProducao))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -475,10 +537,14 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pDadosJuiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(76, 76, 76)
                         .addComponent(lTotalProducao)))
+=======
+                    .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -506,26 +572,33 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
         DefaultComboBoxModel defaultComboBoxModelArmazemA = new DefaultComboBoxModel(this.getMatA().toArray());
         this.getCbMatA().setModel(defaultComboBoxModelArmazemA);
         this.cbMatA.setSelectedIndex(0);
+<<<<<<< HEAD
         ArmazemFabrica matA = (ArmazemFabrica)this.cbMatA.getSelectedItem();
         this.lQtdCouro.setText(matA.getQuantidade().toEngineeringString());
         this.lQtdCouro.setVisible(true);
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         this.setMatB(materiaA);
 
         DefaultComboBoxModel defaultComboBoxModelArmazemB = new DefaultComboBoxModel(this.getMatB().toArray());
         this.getCbMatB().setModel(defaultComboBoxModelArmazemB);
         this.cbMatB.setSelectedIndex(1);
+<<<<<<< HEAD
         ArmazemFabrica matB = (ArmazemFabrica) this.cbMatB.getSelectedItem();
         this.lQtdPlastico.setText(matB.getQuantidade().toEngineeringString());
         this.lQtdPlastico.setVisible(true);
         
         
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
     }//GEN-LAST:event_cbArmazemFocusLost
 
     private void jtxQtdBKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxQtdBKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+<<<<<<< HEAD
             BigDecimal qtda = new BigDecimal(this.jtxQtdA.getText());//o total de couro
             BigDecimal qtdb = new BigDecimal(this.jtxQtdB.getText());//o total de plástico
             BigDecimal produtos = qtda.multiply(new BigDecimal("0.4")).add(qtdb.multiply(new BigDecimal("0.6"))).setScale(2, RoundingMode.HALF_EVEN);;
@@ -533,6 +606,12 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
             
             this.custo = (produtos.multiply(this.fabrica.getFatorTransformacao())).multiply(this.fabrica.getCustoTransformacao()).setScale(2, RoundingMode.HALF_EVEN);;
             this.lTotalProducao.setText("Custo: R$ " + this.custo.toEngineeringString());
+=======
+            BigDecimal qtda = new BigDecimal(this.jtxQtdA.getText());
+            BigDecimal qtdb = new BigDecimal(this.jtxQtdB.getText());
+            BigDecimal produtos = qtda.multiply(new BigDecimal("0.4")).add(qtdb.multiply(new BigDecimal("0.6")));
+            this.jtxProdutos.setText(produtos.toEngineeringString());
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         }
     }//GEN-LAST:event_jtxQtdBKeyPressed
 
@@ -556,9 +635,12 @@ public class ViewDadosProducao extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lProdutos;
     private javax.swing.JLabel lQtdA;
     private javax.swing.JLabel lQtdB;
+<<<<<<< HEAD
     private javax.swing.JLabel lQtdCouro;
     private javax.swing.JLabel lQtdPlastico;
     private javax.swing.JLabel lTotalProducao;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     private javax.swing.JLabel logo;
     private javax.swing.JPanel pDadosJuiz;
     // End of variables declaration//GEN-END:variables

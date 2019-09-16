@@ -53,7 +53,11 @@ public class ViewPesquisaProducao extends javax.swing.JInternalFrame {
     private void abrirViewDadosProducao(Producao producao, String acao) {
         //if (viewDadosProducao == null) {
             viewDadosProducao = new ViewDadosProducao(this.jogador);
+<<<<<<< HEAD
             OuvinteViewDadosProducao ouvinte = new OuvinteViewDadosProducao(viewDadosProducao, this.jogador);
+=======
+            OuvinteViewDadosProducao ouvinte = new OuvinteViewDadosProducao(viewDadosProducao);
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
             this.getParent().add(viewDadosProducao);
             viewDadosProducao.setPosicao();
         //}
@@ -99,7 +103,12 @@ public class ViewPesquisaProducao extends javax.swing.JInternalFrame {
                 String armazem = producaoTemp.getArmazemFabrica().getFabrica().getNomeFantasia();
                 String quantidadeA = producaoTemp.getQuantidadeMateriaA().toEngineeringString();
                 String quantidadeB = producaoTemp.getQuantidadeMateriaB().toEngineeringString();
+<<<<<<< HEAD
                 String produtosTemp = producaoTemp.getProdutos().toEngineeringString();
+=======
+                BigDecimal produtos = producaoTemp.getQuantidadeMateriaA().multiply(new BigDecimal("0.4")).add(producaoTemp.getQuantidadeMateriaB().multiply(new BigDecimal("0.6")));
+                String produtosTemp = produtos.toEngineeringString();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 
                 Object[] linha = {id, armazem, quantidadeA ,quantidadeB, produtosTemp};
                 model.addRow(linha);
@@ -300,7 +309,10 @@ public class ViewPesquisaProducao extends javax.swing.JInternalFrame {
         Producao producao = new Producao();
         producao.setQuantidadeMateriaA(BigDecimal.ZERO);
         producao.setQuantidadeMateriaB(BigDecimal.ZERO);
+<<<<<<< HEAD
         producao.setProdutos(BigDecimal.ZERO);
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         this.abrirViewDadosProducao(producao, "novo");
     }//GEN-LAST:event_bNovoActionPerformed
 

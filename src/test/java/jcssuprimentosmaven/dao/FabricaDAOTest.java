@@ -26,7 +26,11 @@ public class FabricaDAOTest {
         fab.setTempoTransformacao(1);
         EmpresaDAO edao = new EmpresaDAO();
         //fab.setEmpresa(edao.buscarPorCodigo(1L));
+<<<<<<< HEAD
         PessoaDAO pudao = new PessoaDAO();
+=======
+        PessoaUsuarioDAO pudao = new PessoaUsuarioDAO();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         
         //fab.setPessoa(pudao.buscarPorCodigo(1L));
         

@@ -28,7 +28,10 @@
         <mapping class="jcssuprimentosmaven.domain.ArmazemFabrica"/>
         <mapping class="jcssuprimentosmaven.domain.ArmazemDistribuicao"/>
         <mapping class="jcssuprimentosmaven.domain.Distribuidor"/>
+<<<<<<< HEAD
         <mapping class="jcssuprimentosmaven.domain.Pessoa"/>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         <mapping class="jcssuprimentosmaven.domain.Produto"/>
         <mapping class="jcssuprimentosmaven.domain.Producao"/>
         <mapping class="jcssuprimentosmaven.domain.EstoqueSuprimento"/>

@@ -13,7 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+<<<<<<< HEAD
 import jcssuprimentosmaven.domain.Jogador;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.domain.Solicitacao;
 import jcssuprimentosmaven.ouvinte.OuvinteViewDadosSolicitacao;
 import jcssuprimentosmaven.util.ViewUtil;
@@ -26,13 +29,18 @@ public class ViewPesquisaSolicitacao extends javax.swing.JInternalFrame {
 
     private ViewDadosSolicitacao viewDadosSolicitacao;
     private List solicitacoes;
+<<<<<<< HEAD
     private Jogador jogador;
+=======
+
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     /**
      * Creates new form ViewPesquisaJuiz
      */
     public ViewPesquisaSolicitacao() {
         initComponents();
     }
+<<<<<<< HEAD
     
     public ViewPesquisaSolicitacao(Jogador jogador){
         this.jogador = jogador;
@@ -43,6 +51,8 @@ public class ViewPesquisaSolicitacao extends javax.swing.JInternalFrame {
             this.bEntregar.setEnabled(false);
         }
     }
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
     public void setPosicao() {
         Dimension d = this.getDesktopPane().getSize();
@@ -51,7 +61,11 @@ public class ViewPesquisaSolicitacao extends javax.swing.JInternalFrame {
 
     private void abrirViewDadosSolicitacao(Solicitacao solicitacao, String acao) {
         //if (viewDadosProducao == null) {
+<<<<<<< HEAD
             viewDadosSolicitacao = new ViewDadosSolicitacao(this.jogador);
+=======
+            viewDadosSolicitacao = new ViewDadosSolicitacao();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
             OuvinteViewDadosSolicitacao ouvinte = new OuvinteViewDadosSolicitacao(viewDadosSolicitacao);
             this.getParent().add(viewDadosSolicitacao);
             viewDadosSolicitacao.setPosicao();
@@ -96,7 +110,11 @@ public class ViewPesquisaSolicitacao extends javax.swing.JInternalFrame {
                 Solicitacao solicitacaoTemp = (Solicitacao) resultado.next();
                 Long id = solicitacaoTemp.getId();
                 String quantidade = solicitacaoTemp.getQuantidade().toEngineeringString();
+<<<<<<< HEAD
                 String meio = solicitacaoTemp.getMeioTransporte().getDescricao();
+=======
+                String meio = solicitacaoTemp.getMeioTransporte().getTempo();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 String produto = solicitacaoTemp.getProduto().getDescricao();
                 String armazem = solicitacaoTemp.getArmazemDistribuicao().getNomeFantasia();
 
@@ -150,10 +168,13 @@ public class ViewPesquisaSolicitacao extends javax.swing.JInternalFrame {
     public void bPesquisarTodosAddActionListener(ActionListener ouvinte) {
         bPesquisaTodos.addActionListener(ouvinte);
     }
+<<<<<<< HEAD
     
     public void bEntregarSolicitacaoListener (ActionListener ouvinte){
         bEntregar.addActionListener(ouvinte);
     }
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
     public int pedirConfirmacao(String mensagem, String titulo, int tipo) {
         int resposta = JOptionPane.showConfirmDialog(null, mensagem, titulo, tipo);
@@ -179,7 +200,10 @@ public class ViewPesquisaSolicitacao extends javax.swing.JInternalFrame {
         jtxCriterio = new javax.swing.JTextField();
         bPesquisar = new javax.swing.JButton();
         bPesquisaTodos = new javax.swing.JButton();
+<<<<<<< HEAD
         bEntregar = new javax.swing.JButton();
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -255,8 +279,11 @@ public class ViewPesquisaSolicitacao extends javax.swing.JInternalFrame {
 
         bPesquisaTodos.setText("Pesquisar Todos");
 
+<<<<<<< HEAD
         bEntregar.setText("Entregar");
 
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -265,6 +292,7 @@ public class ViewPesquisaSolicitacao extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+<<<<<<< HEAD
                         .addComponent(bNovo))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -272,12 +300,24 @@ public class ViewPesquisaSolicitacao extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(bEntregar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bNovo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                                 .addComponent(bPesquisaTodos)
                                 .addGap(32, 32, 32)
                                 .addComponent(bAlterar)
                                 .addGap(41, 41, 41)
+<<<<<<< HEAD
                                 .addComponent(bExcluir))
                             .addComponent(spListaJuizes, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE))))
+=======
+                                .addComponent(bExcluir))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(spListaJuizes, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(131, 131, 131)
@@ -295,8 +335,12 @@ public class ViewPesquisaSolicitacao extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bAlterar)
                     .addComponent(bExcluir)
+<<<<<<< HEAD
                     .addComponent(bPesquisaTodos)
                     .addComponent(bEntregar))
+=======
+                    .addComponent(bPesquisaTodos))
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
@@ -334,7 +378,10 @@ public class ViewPesquisaSolicitacao extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAlterar;
+<<<<<<< HEAD
     private javax.swing.JButton bEntregar;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     private javax.swing.JButton bExcluir;
     private javax.swing.JButton bNovo;
     private javax.swing.JButton bPesquisaTodos;

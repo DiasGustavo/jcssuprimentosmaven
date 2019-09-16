@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
 import jcssuprimentosmaven.controller.EmpresaController;
 import jcssuprimentosmaven.controller.EstoqueDistribuicaoController;
 import jcssuprimentosmaven.controller.SolicitacaoController;
@@ -20,6 +21,9 @@ import jcssuprimentosmaven.domain.Empresa;
 import jcssuprimentosmaven.domain.EstoqueDistribuicao;
 import jcssuprimentosmaven.domain.Fabrica;
 import jcssuprimentosmaven.domain.Jogador;
+=======
+import jcssuprimentosmaven.controller.SolicitacaoController;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.domain.Solicitacao;
 import jcssuprimentosmaven.util.ViewUtil;
 import jcssuprimentosmaven.view.ViewPesquisaSolicitacao;
@@ -29,6 +33,7 @@ import jcssuprimentosmaven.view.ViewPesquisaSolicitacao;
  * @author Gustavo
  */
 public class OuvinteViewPesquisaSolicitacao {
+<<<<<<< HEAD
 
     ViewPesquisaSolicitacao viewPesquisaSolicitacao;
     Jogador jogador;
@@ -80,6 +85,38 @@ public class OuvinteViewPesquisaSolicitacao {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
+=======
+    ViewPesquisaSolicitacao viewPesquisaSolicitacao;
+    
+    public OuvinteViewPesquisaSolicitacao(ViewPesquisaSolicitacao view){
+        this.viewPesquisaSolicitacao = view;
+        this.viewPesquisaSolicitacao.bPesquisarTodosAddActionListener(new OuvintePesquisarTodasSolicitacoes());
+        this.viewPesquisaSolicitacao.bPesquisarAddActionListener(new OuvintePesquisarSolicitacao());
+        this.viewPesquisaSolicitacao.bExcluirAddActionListener(new OuvinteExcluirSolicitacao());
+    }
+    
+    class OuvintePesquisarTodasSolicitacoes implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try{
+                SolicitacaoController solicitacaoController = new SolicitacaoController();
+                solicitacaoController.listar();
+                List solicitacoes = solicitacaoController.getListaSolicitacoes();
+                viewPesquisaSolicitacao.listar(solicitacoes);
+            }catch(RuntimeException ex){
+                ViewUtil.addMsgErro("Ocorreu um erro ao listar as solicitações " + ex.getMessage());
+            }
+        }
+        
+    }
+    
+    class OuvintePesquisarSolicitacao implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try{
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 SolicitacaoController solicitacaoController = new SolicitacaoController();
                 Long codigo = viewPesquisaSolicitacao.getIdPesquisar();
                 List solicitacoes = null;
@@ -87,6 +124,7 @@ public class OuvinteViewPesquisaSolicitacao {
                 solicitacaoController.carregarDados();
                 solicitacoes.add(solicitacaoController.getSolicitacaoCadastro());
                 viewPesquisaSolicitacao.listar(solicitacoes);
+<<<<<<< HEAD
             } catch (RuntimeException ex) {
                 ViewUtil.addMsgErro("Erro ao pesquisar a solicitação " + ex.getMessage());
             }
@@ -100,6 +138,21 @@ public class OuvinteViewPesquisaSolicitacao {
         public void actionPerformed(ActionEvent e) {
             try {
                 Solicitacao solicitacao = viewPesquisaSolicitacao.getSolicitacao();
+=======
+            }catch(RuntimeException ex){
+                ViewUtil.addMsgErro("Erro ao pesquisar a solicitação " + ex.getMessage());
+            }
+        }
+        
+    }
+    
+    class OuvinteExcluirSolicitacao implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try{
+                Solicitacao solicitacao = new Solicitacao();
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                 StringBuffer mensagem = new StringBuffer("Confirma a Exclusão do Produção abaixo: ");
                 mensagem.append("\ncodigo: " + solicitacao.getId());
                 mensagem.append("\nQuantidade: " + solicitacao.getQuantidade());
@@ -109,6 +162,7 @@ public class OuvinteViewPesquisaSolicitacao {
                     SolicitacaoController solicitacaoController = new SolicitacaoController();
                     solicitacaoController.setSolicitacaoCadastro(solicitacao);
                     solicitacaoController.excluir();
+<<<<<<< HEAD
                     solicitacaoController.listar();
                     List solicitacoes = solicitacaoController.getListaSolicitacoes();
                     viewPesquisaSolicitacao.listar(solicitacoes);
@@ -158,6 +212,13 @@ public class OuvinteViewPesquisaSolicitacao {
                 
             }catch(RuntimeException ex){
                 ViewUtil.addMsgErro("Ocorreu um erro ao entregar a solicatação " + ex.getMessage());
+=======
+                    List solicitacoes = solicitacaoController.getListaSolicitacoes();
+                    viewPesquisaSolicitacao.listar(solicitacoes);
+                }
+            }catch(RuntimeException ex){
+                ViewUtil.addMsgErro("Ocorreu um erro ao excluir a solicitação " + ex.getMessage());
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
             }
         }
         

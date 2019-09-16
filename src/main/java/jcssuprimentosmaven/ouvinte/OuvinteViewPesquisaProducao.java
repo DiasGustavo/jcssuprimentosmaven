@@ -8,6 +8,7 @@ package jcssuprimentosmaven.ouvinte;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+<<<<<<< HEAD
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,13 @@ import jcssuprimentosmaven.controller.EmpresaController;
 import jcssuprimentosmaven.controller.FabricaController;
 import jcssuprimentosmaven.controller.ProducaoController;
 import jcssuprimentosmaven.domain.ArmazemFabrica;
+=======
+import java.util.List;
+import javax.swing.JOptionPane;
+import jcssuprimentosmaven.controller.EmpresaController;
+import jcssuprimentosmaven.controller.FabricaController;
+import jcssuprimentosmaven.controller.ProducaoController;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.domain.Empresa;
 import jcssuprimentosmaven.domain.Fabrica;
 import jcssuprimentosmaven.domain.Jogador;
@@ -61,11 +69,15 @@ public class OuvinteViewPesquisaProducao {
                     ProducaoController producaoController = new ProducaoController();
                     FabricaController fabricaController = new FabricaController();
                     EmpresaController empresaController = new EmpresaController();
+<<<<<<< HEAD
                     ArmazemFabricaController armazemFabricaController = new ArmazemFabricaController();
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                     List empresas = empresaController.buscarPorJogador(this.jogadorTeste);
                     Empresa empresa = (Empresa)empresas.get(0);
                     List fabricas = fabricaController.buscarPorEmpresa(empresa);
                     Fabrica fabrica = (Fabrica) fabricas.get(0);
+<<<<<<< HEAD
                     List armazensFabrica = armazemFabricaController.buscarPorFabrica(fabrica);
                     List <Producao> producoes = new ArrayList<Producao>();
                     Producao producao = null;
@@ -74,6 +86,9 @@ public class OuvinteViewPesquisaProducao {
                         producoes.add(producao);
                     }
                     
+=======
+                    List producoes = producaoController.buscarPorFabrica(fabrica);
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                     viewPesquisaProducao.listar(producoes);
                 }
             } catch (RuntimeException ex) {

@@ -5,6 +5,10 @@
  */
 package jcssuprimentosmaven.view;
 
+<<<<<<< HEAD
+=======
+import java.awt.Component;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.event.ActionListener;
@@ -15,10 +19,21 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+<<<<<<< HEAD
 import javax.swing.table.TableColumn;
 import jcssuprimentosmaven.domain.Jogador;
 import jcssuprimentosmaven.domain.Pedido;
 import jcssuprimentosmaven.ouvinte.OuvinteViewDadosPedido;
+=======
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+import jcssuprimentosmaven.domain.Jogador;
+import jcssuprimentosmaven.domain.Pedido;
+import jcssuprimentosmaven.domain.Producao;
+import jcssuprimentosmaven.ouvinte.OuvinteViewDadosPedido;
+import jcssuprimentosmaven.ouvinte.OuvinteViewDadosProducao;
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.util.ViewUtil;
 
 /**

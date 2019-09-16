@@ -7,7 +7,10 @@ package jcssuprimentosmaven.controller;
 
 import java.util.List;
 import jcssuprimentosmaven.dao.ProducaoDAO;
+<<<<<<< HEAD
 import jcssuprimentosmaven.domain.ArmazemFabrica;
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
 import jcssuprimentosmaven.domain.Fabrica;
 import jcssuprimentosmaven.domain.Producao;
 import jcssuprimentosmaven.util.ViewUtil;
@@ -111,6 +114,7 @@ public class ProducaoController {
         return materiasPrima;
     }
     
+<<<<<<< HEAD
     public Producao buscarPorArmazem(ArmazemFabrica armazem){
         Producao producao = null;
         try{
@@ -122,6 +126,8 @@ public class ProducaoController {
         return producao;
     }
     
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
     public void editar(){
         try{
             ProducaoDAO pdao = new ProducaoDAO();

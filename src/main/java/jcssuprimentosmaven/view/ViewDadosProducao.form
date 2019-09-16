@@ -28,11 +28,16 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="pDadosJuiz" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="logo" min="-2" pref="124" max="-2" attributes="0"/>
                   <Component id="lTotalProducao" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
+=======
+              <Component id="logo" min="-2" pref="124" max="-2" attributes="0"/>
+              <EmptySpace pref="11" max="32767" attributes="0"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
           </Group>
       </Group>
     </DimensionLayout>
@@ -42,11 +47,15 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pDadosJuiz" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Group type="102" attributes="0">
                       <Component id="logo" min="-2" pref="103" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                       <Component id="lTotalProducao" min="-2" max="-2" attributes="0"/>
                   </Group>
+=======
+                  <Component id="logo" min="-2" pref="103" max="-2" attributes="0"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -95,6 +104,7 @@
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="cbArmazem" alignment="0" pref="284" max="32767" attributes="0"/>
+<<<<<<< HEAD
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="cbMatA" pref="168" max="32767" attributes="0"/>
@@ -107,6 +117,10 @@
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
+=======
+                                  <Component id="cbMatA" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbMatB" alignment="0" max="32767" attributes="0"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -144,13 +158,19 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lMatA" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbMatA" alignment="3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="lQtdCouro" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lMatB" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbMatB" alignment="3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="lQtdPlastico" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -266,7 +286,11 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lMatA">
           <Properties>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="Mat. Couro"/>
+=======
+            <Property name="text" type="java.lang.String" value="Mat. A"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
             <Property name="toolTipText" type="java.lang.String" value="Couro"/>
           </Properties>
         </Component>
@@ -284,7 +308,11 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lMatB">
           <Properties>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="Mat. Pl&#xe1;stico"/>
+=======
+            <Property name="text" type="java.lang.String" value="Mat. B"/>
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
             <Property name="toolTipText" type="java.lang.String" value="Pl&#xe1;stico"/>
           </Properties>
         </Component>
@@ -316,6 +344,7 @@
             <Property name="text" type="java.lang.String" value="Produ&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JLabel" name="lQtdCouro">
           <Properties>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
@@ -326,10 +355,13 @@
             <Property name="text" type="java.lang.String" value="jLabel2"/>
           </Properties>
         </Component>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="logo">
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JLabel" name="lTotalProducao">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -338,5 +370,7 @@
         <Property name="text" type="java.lang.String" value="Custo:"/>
       </Properties>
     </Component>
+=======
+>>>>>>> 422d0a7184ad0fae75859fb8671f48ecf0ffb1a9
   </SubComponents>
 </Form>
