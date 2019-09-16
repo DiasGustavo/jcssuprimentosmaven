@@ -64,6 +64,21 @@ public class JuizDAO {
         return juiz;
     }
     
+    public List<Juiz> buscarPorNome(String nomeInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Juiz> listaJuizes = null;
+        try{
+            Query consulta = sessao.getNamedQuery("Juiz.buscarPorNome");
+            consulta.setString("nome", nomeInformado);
+            listaJuizes = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaJuizes;
+    }
+    
     public void editar(Juiz juiz){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         Transaction transacao = null;

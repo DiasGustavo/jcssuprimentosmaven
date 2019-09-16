@@ -36,7 +36,7 @@ public class MeioTransporteDAOTest {
         
         TransportadoraDAO tdao = new TransportadoraDAO();
         Transportadora transportadora = tdao.buscarPorCodigo(1L);
-        meio.setTransportadora(transportadora);
+        //meio.setTransportadora(transportadora);
         
         MeioTransporteDAO mdao = new MeioTransporteDAO();
         mdao.salvar(meio);
@@ -87,6 +87,7 @@ public class MeioTransporteDAOTest {
      * Test of excluir method, of class MeioTransporteDAO.
      */
     @Test
+    @Ignore
     public void testExcluir() {
        MeioTransporteDAO mdao = new MeioTransporteDAO();
        MeioTransporte meio = mdao.buscarPorCodigo(1L); 

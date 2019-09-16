@@ -64,6 +64,54 @@ public class MeioTransporteDAO {
         return meio;
     }
     
+    public List<MeioTransporte> buscarPorNome(String nomeInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<MeioTransporte> listaMeiosTransporte = null;
+        
+        try{
+            Query consulta = sessao.getNamedQuery("MeioTransporte.buscarPorNome");
+            consulta.setString("nome", nomeInformado);
+            listaMeiosTransporte = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaMeiosTransporte;
+    }
+    
+    public List<MeioTransporte> buscarPorStatus(String statusInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<MeioTransporte> listaMeiosTransporte = null;
+        
+        try{
+            Query consulta = sessao.getNamedQuery("MeioTransporte.buscarPorStatus");
+            consulta.setString("status", statusInformado);
+            listaMeiosTransporte = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaMeiosTransporte;
+    }
+    
+    public List<MeioTransporte> buscarPorDestino(String destinoInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<MeioTransporte> listaMeiosTransporte = null;
+        
+        try{
+            Query consulta = sessao.getNamedQuery("MeioTransporte.buscarPorDestino");
+            consulta.setString("destino", destinoInformado);
+            listaMeiosTransporte = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaMeiosTransporte;
+    }
+    
     public void editar(MeioTransporte meioTransporte){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         Transaction transacao = null;

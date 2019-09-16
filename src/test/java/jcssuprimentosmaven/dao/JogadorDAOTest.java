@@ -24,16 +24,32 @@ public class JogadorDAOTest {
      * Test of salvar method, of class JogadorDAO.
      */
     @Test
-    
+    @Ignore
     public void testSalvar() {
         Jogador jogador = new Jogador();
         jogador.setEmail("jogador@gmail.com");
-        jogador.setLogin("jogador1");
+        jogador.setNome("gustavo");
+        jogador.setLogin("gustavo");
         jogador.setSenha("qwe123");
-        jogador.setStatus("A");
+        jogador.setFuncao(0);
+        jogador.setStatus(0);
         
         JogadorDAO jdao = new JogadorDAO();
         jdao.salvar(jogador);
+    }
+    @Test
+    
+    public void autenticar(){
+        Jogador jogador = new Jogador();
+        jogador.setLogin("gustavo");
+        jogador.setSenha("qwe123");
+        jogador.setFuncao(2);
+        
+        JogadorDAO jdao = new JogadorDAO();
+        Jogador jogadorAutenticado = jdao.autenticarUsuario(jogador.getLogin(), jogador.getSenha(), jogador.getFuncao());
+        
+        System.out.println(jogadorAutenticado);
+        
     }
 
     /**
@@ -66,12 +82,12 @@ public class JogadorDAOTest {
      * Test of editar method, of class JogadorDAO.
      */
     @Test
-    @Ignore
+    
     public void testEditar() {
         JogadorDAO jdao = new JogadorDAO();
         Jogador jogador = jdao.buscarPorCodigo(1L);
         
-        jogador.setLogin("fulano");
+        jogador.setFuncao(2);
         jdao.editar(jogador);
         
         System.out.println(jogador);

@@ -32,13 +32,14 @@ public class MateriaPrimaDAOTest {
         materia.setDescricao("plástico");
         materia.setPreco(new BigDecimal(25));
         materia.setQuantidade("100");
-        materia.setTaxaDiaria(new BigDecimal(20));
+        //materia.setTaxaDiaria(new BigDecimal(20));
         materia.setTempoEntrega("10");
+        materia.setStatus("Ativo");
         
         FornecedorDAO fdao = new FornecedorDAO();
         Fornecedor fornecedor = fdao.buscarPorCodigo(1L);
         
-        materia.setFornecedor(fornecedor);
+       // materia.setFornecedor(fornecedor);
         
         MateriaPrimaDAO mdao = new MateriaPrimaDAO();
         mdao.salvar(materia);
@@ -88,6 +89,7 @@ public class MateriaPrimaDAOTest {
      * Test of excluir method, of class MateriaPrimaDAO.
      */
     @Test
+    @Ignore
     public void testExcluir() {
         MateriaPrimaDAO mdao = new MateriaPrimaDAO();
         MateriaPrima materia = mdao.buscarPorCodigo(1L);

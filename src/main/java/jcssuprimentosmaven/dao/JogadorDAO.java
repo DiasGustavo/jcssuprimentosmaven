@@ -62,6 +62,38 @@ public class JogadorDAO {
         }
         return jogador;
     }
+    
+    public Jogador autenticarUsuario(String login, String senha, int funcao) {
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        Jogador jogador = null;
+        try {
+            Query consulta = sessao.getNamedQuery("Jogador.autenticarUsuario");
+            consulta.setString("login", login);
+            consulta.setString("senha", senha);
+            consulta.setInteger("funcao", funcao);
+            jogador = (Jogador) consulta.uniqueResult();
+        } catch (RuntimeException ex) {
+            throw ex;
+        } finally {
+            sessao.close();
+        }
+        return jogador;
+    }
+    
+    public List<Jogador> buscarPorNome(String nomeInformado) {
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Jogador> jogadores = null;
+        try {
+            Query consulta = sessao.getNamedQuery("Jogador.buscarPorNome");
+            consulta.setString("nome", nomeInformado);
+            jogadores = consulta.list();
+        } catch (RuntimeException ex) {
+            throw ex;
+        } finally {
+            sessao.close();
+        }
+        return jogadores;
+    }
 
     public void editar(Jogador jogador) {
         Session sessao = HibernateUtil.getSessionFactory().openSession();

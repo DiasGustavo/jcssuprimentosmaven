@@ -30,14 +30,11 @@ public class RodadaDAOTest {
         Rodada rodada = new Rodada();
         rodada.setDataInicio(new Date(2017,1,10));
         rodada.setDataFim(new Date(2017,1,20));
-        rodada.setDemanda("10");
+        rodada.setDemanda("1");
         rodada.setCargaFerroviaria(10);
         rodada.setCargaRodoviaria(20);
         
-        JuizDAO jdao = new JuizDAO();
-        Juiz juiz = jdao.buscarPorCodigo(1L);
-        rodada.setJuiz(juiz);
-        
+                
         RodadaDAO rdao = new RodadaDAO();
         rdao.salvar(rodada);
     }
@@ -49,7 +46,7 @@ public class RodadaDAOTest {
     @Ignore
     public void testLitar() {
         RodadaDAO rdao = new RodadaDAO();
-        List<Rodada> listaRodadas = rdao.litar();
+        List<Rodada> listaRodadas = rdao.listar();
         
         for(Rodada rodada: listaRodadas){
             System.out.println(rodada);

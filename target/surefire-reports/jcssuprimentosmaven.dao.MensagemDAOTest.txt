@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: jcssuprimentosmaven.dao.MensagemDAOTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.34 sec
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0 sec

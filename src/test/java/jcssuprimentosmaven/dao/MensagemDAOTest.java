@@ -82,7 +82,7 @@ public class MensagemDAOTest {
      * Test of excluir method, of class MensagemDAO.
      */
     @Test
-    
+    @Ignore
     public void testExcluir() {
         MensagemDAO mdao = new MensagemDAO();
         Mensagem mensagem = mdao.buscarPorCodigo(1L);

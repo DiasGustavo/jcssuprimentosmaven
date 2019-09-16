@@ -10,12 +10,9 @@ import java.math.BigDecimal;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -26,14 +23,20 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- *
  * @author Gustavo
+ * Criação: 10/06/2018 
+ * Última Alteração 25/07/2018
+ * @version 1.0
+ * obs.: Adicionando o atributo destino
  */
 @Entity
 @Table(name = "tbl_meio_transporte")
 @NamedQueries({
     @NamedQuery(name = "MeioTransporte.listar", query = "SELECT meioTransporte FROM MeioTransporte meioTransporte"),
-    @NamedQuery(name = "MeioTransporte.buscarPorCodigo", query = "SELECT meioTransporte FROM MeioTransporte meioTransporte WHERE meioTransporte.id = :codigo")
+    @NamedQuery(name = "MeioTransporte.buscarPorCodigo", query = "SELECT meioTransporte FROM MeioTransporte meioTransporte WHERE meioTransporte.id = :codigo"),
+    @NamedQuery(name = "MeioTransporte.buscarPorNome", query = "SELECT meioTransporte FROM MeioTransporte meioTransporte WHERE meioTransporte.descricao = :nome"),
+    @NamedQuery(name = "MeioTransporte.buscarPorStatus", query = "SELECT meioTransporte FROM MeioTransporte meioTransporte WHERE meioTransporte.status = :status"),
+    @NamedQuery(name = "MeioTransporte.buscarPorDestino", query = "SELECT meioTransporte FROM MeioTransporte meioTransporte WHERE meioTransporte.destino =:destino")
 })
 public class MeioTransporte implements Serializable {
     @Id
@@ -45,6 +48,11 @@ public class MeioTransporte implements Serializable {
     @Size(min = 1, max = 100, message = "O campo descrição deve ter entre 1 e 100 caracteres")
     @Column(name = "descricao", length = 100)
     private String descricao;
+    
+    @NotEmpty(message = "O campo destino é obrigatório")
+    @Size(min = 1, max = 100, message = "O campo destino deve ter entre 1 e 100 caracteres")
+    @Column(name = "destino", length = 100)
+    private String destino;
     
     @NotNull(message="o campo taxa de seguro é obrigatório.")
     @DecimalMin(value="0.00", message="o campo taxa de seguro deve ser maior do que 0.00")
@@ -63,10 +71,17 @@ public class MeioTransporte implements Serializable {
     @Column(name = "tempo", length = 3)
     private String tempo;
     
+    @NotEmpty(message = "O campo status é obrigatório")
+    @Size(min = 1, max = 10, message = "O campo status deve ter entre 1 e 10 caracteres")
+    @Column(name = "status", length = 10)
+    private String status;
+    
+    /*@ElementCollection
+    @Convert(converter = TransportadoraConverter.class, attributeName = "fk_transportadora")
     @NotNull(message = "O campo transportadora é obrigatória")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_transportadora", referencedColumnName = "cod_transportadora", nullable = false)
-    private Transportadora transportadora;
+    private Transportadora transportadora;*/
 
     public Long getId() {
         return id;
@@ -83,6 +98,14 @@ public class MeioTransporte implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }  
 
     public BigDecimal getTaxa_seguro() {
         return taxaSeguro;
@@ -108,17 +131,26 @@ public class MeioTransporte implements Serializable {
         this.tempo = tempo;
     }
 
-    public Transportadora getTransportadora() {
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+
+    /*public Transportadora getTransportadora() {
         return transportadora;
     }
 
     public void setTransportadora(Transportadora transportadora) {
         this.transportadora = transportadora;
-    }
+    }*/
 
     @Override
     public String toString() {
-        return "MeioTransporte{" + "id=" + id + ", descricao=" + descricao + ", taxa_seguro=" + taxaSeguro + ", taxa_transporte=" + taxaTransporte + ", tempo=" + tempo + ", transportadora=" + transportadora + '}';
+        return id + ". " + descricao + ", Entrega: " + tempo + " - Destino: " + destino ;
     }
 
     @Override

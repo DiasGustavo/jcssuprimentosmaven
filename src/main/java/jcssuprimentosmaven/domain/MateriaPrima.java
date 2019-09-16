@@ -10,12 +10,9 @@ import java.math.BigDecimal;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -33,7 +30,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "tbl_materia_prima")
 @NamedQueries({
     @NamedQuery(name = "MateriaPrima.listar", query = "SELECT materiaPrima FROM MateriaPrima materiaPrima"),
-    @NamedQuery(name = "MateriaPrima.buscarPorCodigo", query = "SELECT materiaPrima FROM MateriaPrima materiaPrima WHERE materiaPrima.id = :codigo")
+    @NamedQuery(name = "MateriaPrima.buscarPorCodigo", query = "SELECT materiaPrima FROM MateriaPrima materiaPrima WHERE materiaPrima.id = :codigo"),
+    @NamedQuery(name = "MateriaPrima.buscarPorNome", query = "SELECT materiaPrima FROM MateriaPrima materiaPrima WHERE materiaPrima.descricao = :descricao"),
+    @NamedQuery(name = "MateriaPrima.buscarPorStatus", query = "SELECT materiaPrima FROM MateriaPrima materiaPrima WHERE materiaPrima.status = :status")
+   // @NamedQuery(name = "MateriaPrima.buscarPorFornecedor", query = "SELECT materiaPrima FROM MateriaPrima materiaPrima WHERE materiaPrima.fornecedor = :fornecedor")
 })
 public class MateriaPrima implements Serializable {
     @Id
@@ -62,16 +62,17 @@ public class MateriaPrima implements Serializable {
     @Column(name = "quantidade", length = 3)
     private String quantidade;
     
-    @NotNull(message="o campo taxa diária é obrigatório.")
-    @DecimalMin(value="0.00", message="o campo taxa diária deve ser maior do que 0.00")
-    @Digits(integer = 7, fraction = 2, message = "coloque um valor válido para a taxa diária")
-    @Column(name = "taxa_diaria", precision = 9, scale = 2, nullable = false)
-    private BigDecimal taxaDiaria;
-    
-    @NotEmpty(message = "O campo fornecedor é obrigatório")
+    @NotEmpty(message = "O campo Status é obrigatório")
+    @Size(min = 1, max = 10, message = "O campo status deve ter entre 1 e 10 caracteres")
+    @Column(name = "status", length = 10)
+    private String status;
+   
+    /*@ElementCollection
+    @Convert(converter = FornecedorConverter.class, attributeName = "fk_fornecedor")
+    //@NotEmpty(message = "O campo fornecedor é obrigatório")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_fornecedor", referencedColumnName = "cod_fornecedor", nullable = false)
-    private Fornecedor fornecedor;
+    private Fornecedor fornecedor;*/
 
     public Long getId() {
         return id;
@@ -112,26 +113,28 @@ public class MateriaPrima implements Serializable {
     public void setQuantidade(String quantidade) {
         this.quantidade = quantidade;
     }
-
-    public BigDecimal getTaxaDiaria() {
-        return taxaDiaria;
+    
+    public String getStatus() {
+        return status;
     }
 
-    public void setTaxaDiaria(BigDecimal taxaDiaria) {
-        this.taxaDiaria = taxaDiaria;
+    public void setStatus(String status) {
+        this.status = status;
     }
+    
+    
 
-    public Fornecedor getFornecedor() {
+    /*public Fornecedor getFornecedor() {
         return fornecedor;
     }
 
     public void setFornecedor(Fornecedor fornecedor) {
         this.fornecedor = fornecedor;
-    }
+    }*/
 
     @Override
     public String toString() {
-        return "MateriaPrima{" + "id=" + id + ", descricao=" + descricao + ", preco=" + preco + ", tempoEntrega=" + tempoEntrega + ", quantidade=" + quantidade + ", taxaDiaria=" + taxaDiaria + ", fornecedor=" + fornecedor + '}';
+        return id + ". " + descricao + "- preco: " + preco + "- Qtd: " + quantidade;
     }
 
     @Override

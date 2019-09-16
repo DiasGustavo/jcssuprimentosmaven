@@ -61,6 +61,21 @@ public class TransportadoraDAO {
         return transportadora;
     }
     
+    public List<Transportadora> buscarPorNome(String nomeInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Transportadora> listaTransportadoras = null;
+        try{
+            Query consulta = sessao.getNamedQuery("Transportadora.buscarPorNome");
+            consulta.setString("nome", nomeInformado);
+            listaTransportadoras = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaTransportadoras;
+    }
+    
     public void editar(Transportadora transportadora){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         Transaction transacao = null;

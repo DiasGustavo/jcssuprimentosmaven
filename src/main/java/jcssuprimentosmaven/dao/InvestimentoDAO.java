@@ -5,6 +5,7 @@
  */
 package jcssuprimentosmaven.dao;
 import java.util.List;
+import jcssuprimentosmaven.domain.Fabrica;
 import jcssuprimentosmaven.domain.Investimento;
 import jcssuprimentosmaven.util.HibernateUtil;
 import org.hibernate.Query;
@@ -61,6 +62,38 @@ public class InvestimentoDAO {
             sessao.close();
         }
         return  investimento;
+    }
+    
+    public List<Investimento> buscarPorNome(String nomeInformado){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Investimento> listaInvestimentos = null;
+        
+        try{
+            Query consulta = sessao.getNamedQuery("Investimento.buscarPorNome");
+            consulta.setString("nome", nomeInformado);
+            listaInvestimentos = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaInvestimentos;
+    }
+    
+    public List<Investimento> buscarPorFabrica(Fabrica fabricaInformada){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Investimento> listaInvestimentos = null;
+        
+        try{
+            Query consulta = sessao.getNamedQuery("Investimento.buscarPorFabrica");
+            consulta.setLong("fabrica", fabricaInformada.getId());
+            listaInvestimentos = consulta.list();
+        }catch(RuntimeException ex){
+            throw ex;
+        }finally{
+            sessao.close();
+        }
+        return listaInvestimentos;
     }
     
     public void editar(Investimento investimento){

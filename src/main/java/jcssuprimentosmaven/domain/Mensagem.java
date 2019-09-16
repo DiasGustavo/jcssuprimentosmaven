@@ -31,7 +31,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "tbl_mensagem")
 @NamedQueries({
     @NamedQuery(name = "Mensagem.listar", query = "SELECT mensagem FROM Mensagem mensagem"),
-    @NamedQuery(name = "Mensagem.buscarPorCodigo", query = "SELECT mensagem FROM Mensagem mensagem WHERE mensagem.id = :codigo")
+    @NamedQuery(name = "Mensagem.buscarPorCodigo", query = "SELECT mensagem FROM Mensagem mensagem WHERE mensagem.id = :codigo"),
+    @NamedQuery(name = "Mensagem.buscarPorDestinatario", query = "SELECT mensagem FROM Mensagem mensagem WHERE mensagem.destinatario = :nome OR mensagem.destinatario = :nomeGeral"),
+    @NamedQuery(name = "Mensagem.buscarPorRemetente", query = "SELECT mensagem FROM Mensagem mensagem WHERE mensagem.remetente = :nome")
+        
 })
 public class Mensagem implements Serializable {
     @Id

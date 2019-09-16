@@ -13,16 +13,28 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
     
-        <mapping class="jcssuprimentosmaven.domain.Juiz"/>
+        <!--<mapping class="jcssuprimentosmaven.domain.Juiz"/>-->
         <mapping class="jcssuprimentosmaven.domain.Jogador"/>
-        <mapping class="jcssuprimentosmaven.domain.Transportadora"/>
-        <mapping class="jcssuprimentosmaven.domain.Fornecedor"/>
+        <!--<mapping class="jcssuprimentosmaven.domain.Transportadora"/>-->
+        <!--<mapping class="jcssuprimentosmaven.domain.Fornecedor"/>-->
         <mapping class="jcssuprimentosmaven.domain.MeioTransporte"/>
         <mapping class="jcssuprimentosmaven.domain.MateriaPrima"/>
         <mapping class="jcssuprimentosmaven.domain.Mensagem"/>
         <mapping class="jcssuprimentosmaven.domain.Rodada"/>
         <mapping class="jcssuprimentosmaven.domain.Empresa"/>
         <mapping class="jcssuprimentosmaven.domain.Investimento"/>
-    
+        <mapping class="jcssuprimentosmaven.domain.Fabrica"/>
+        <mapping class="jcssuprimentosmaven.domain.ArmazemSuprimento"/>
+        <mapping class="jcssuprimentosmaven.domain.ArmazemFabrica"/>
+        <mapping class="jcssuprimentosmaven.domain.ArmazemDistribuicao"/>
+        <mapping class="jcssuprimentosmaven.domain.Distribuidor"/>
+        <mapping class="jcssuprimentosmaven.domain.Pessoa"/>
+        <mapping class="jcssuprimentosmaven.domain.Produto"/>
+        <mapping class="jcssuprimentosmaven.domain.Producao"/>
+        <mapping class="jcssuprimentosmaven.domain.EstoqueSuprimento"/>
+        <mapping class="jcssuprimentosmaven.domain.EstoqueDistribuicao"/> 
+        <mapping class="jcssuprimentosmaven.domain.Pedido"/>
+        <mapping class="jcssuprimentosmaven.domain.Solicitacao"/>        
+        <mapping class="jcssuprimentosmaven.domain.Transporte"/>
     </session-factory>
 </hibernate-configuration>

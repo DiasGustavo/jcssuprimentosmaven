@@ -6,20 +6,26 @@
 package jcssuprimentosmaven.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import jcssuprimentosmaven.converter.JogadorConverter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -30,7 +36,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "tbl_empresa")
 @NamedQueries({
     @NamedQuery(name = "Empresa.listar", query = "SELECT empresa FROM Empresa empresa"),
-    @NamedQuery(name = "Empresa.buscarPorCodigo", query = "SELECT empresa FROM Empresa empresa WHERE empresa.id = :codigo")
+    @NamedQuery(name = "Empresa.buscarPorCodigo", query = "SELECT empresa FROM Empresa empresa WHERE empresa.id = :codigo"),
+    @NamedQuery(name = "Empresa.buscarPorNome", query = "SELECT empresa FROM Empresa empresa WHERE empresa.nomeFantasia = :nome"),
+    @NamedQuery(name = "Empresa.buscarPorJogador", query = "SELECT empresa FROM Empresa empresa WHERE empresa.jogador = :jogador")
 })
 public class Empresa implements Serializable {
     @Id
@@ -43,30 +51,70 @@ public class Empresa implements Serializable {
     @Column(name = "nome_fantasia", length = 50, nullable = false)
     private String nomeFantasia;
     
-    @NotEmpty(message = "O campo logomarca é obrigatório")
+    @NotNull(message="o campo capital inicial é obrigatório.")
+    @DecimalMin(value="0.00", message="o campo capital inicial deve ser maior do que 0.00")
+    @Digits(integer = 7, fraction = 2, message = "coloque um valor válido para o capital inicial")
+    @Column(name = "capital_inicial", precision = 9, scale = 2, nullable = false)
+    private BigDecimal capitalInicial;
+    
+    @NotNull(message="o campo capital atual é obrigatório.")
+    @DecimalMin(value="0.00", message="o campo capital atual deve ser maior do que 0.00")
+    @Digits(integer = 7, fraction = 2, message = "coloque um valor válido para o capital atual")
+    @Column(name = "capital_atual", precision = 9, scale = 2, nullable = false)
+    private BigDecimal capitalAtual;
+    
+    //@NotEmpty(message = "O campo logomarca é obrigatório")
     @Size(min = 1, max = 100, message = "O campo logomarca deve ter entre 1 e 100 caracteres")
-    @Column(name = "logomarca", length = 100, nullable = false)
+    @Column(name = "logomarca", length = 100)
     private String logomarca;
     
-    @NotEmpty(message = "O campo Transportadora é obrigatório")
+    @NotNull(message="o campo margem de lucro é obrigatório.")
+    @DecimalMin(value="0.00", message="o campo margem de lucro deve ser maior do que 0.00")
+    @Digits(integer = 7, fraction = 2, message = "coloque um valor válido para a margem de lucro")
+    @Column(name = "margem_lucro", precision = 9, scale = 2, nullable = false)
+    private BigDecimal margeLucro;
+    
+   /* @ElementCollection
+    @Convert(converter = TransportadoraConverter.class, attributeName = "fk_transportadora")
+    //@NotEmpty(message = "O campo Transportadora é obrigatório")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_transportadora", referencedColumnName = "cod_transportadora", nullable = false)
     private Transportadora transportadora;
     
-    @NotEmpty(message = "O campo fornecedor é obrigatório")
+    @ElementCollection
+    @Convert(converter = FornecedorConverter.class, attributeName = "fk_fornecedor")
+    //@NotEmpty(message = "O campo fornecedor é obrigatório")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_fornecedor", referencedColumnName = "cod_fornecedor", nullable = false)
-    private Fornecedor fornecedor;
+    private Fornecedor fornecedor;*/
     
-    @NotEmpty(message = "O campo jogador é obrigatório")
+    @ElementCollection
+    @Convert(converter = JogadorConverter.class, attributeName = "fk_jogador")
+    //@NotEmpty(message = "O campo jogador é obrigatório")
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_jogador", referencedColumnName = "cod_jogador", nullable = false)
     private Jogador jogador;
     
-    @NotEmpty(message = "O campo rotada é obrigatório")
+    /*@ElementCollection
+    @Convert(converter = RodadaConverter.class, attributeName = "fk_rodada")
+    //@NotEmpty(message = "O campo rotada é obrigatório")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_rodada", referencedColumnName = "cod_rodada", nullable = false)
-    private Rodada rodada;
+    private Rodada rodada;*/
+    
+    /*@ElementCollection
+    @Convert(converter = FabricaConverter.class, attributeName = "fk_fabrica")
+    //@NotEmpty(message = "O campo rotada é obrigatório")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fk_fabrica", referencedColumnName = "cod_fabrica", nullable = false)
+    private Fabrica fabrica;
+    
+    @ElementCollection
+    @Convert(converter = DistribuidorConverter.class, attributeName = "fk_distribuidor")
+    //@NotEmpty(message = "O campo rotada é obrigatório")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fk_distribuidor", referencedColumnName = "cod_distribuidor", nullable = false)
+    private Distribuidor distribuidor;*/
 
     public Long getId() {
         return id;
@@ -90,9 +138,9 @@ public class Empresa implements Serializable {
 
     public void setLogomarca(String logomarca) {
         this.logomarca = logomarca;
-    }
-
-    public Transportadora getTransportadora() {
+    }    
+    
+   /* public Transportadora getTransportadora() {
         return transportadora;
     }
 
@@ -108,6 +156,14 @@ public class Empresa implements Serializable {
         this.fornecedor = fornecedor;
     }
 
+    public Distribuidor getDistribuidor() {
+        return distribuidor;
+    }
+
+    public void setDistribuidor(Distribuidor distribuidor) {
+        this.distribuidor = distribuidor;
+    }*/
+    
     public Jogador getJogador() {
         return jogador;
     }
@@ -116,7 +172,7 @@ public class Empresa implements Serializable {
         this.jogador = jogador;
     }
 
-    public Rodada getRodada() {
+    /*public Rodada getRodada() {
         return rodada;
     }
 
@@ -124,9 +180,42 @@ public class Empresa implements Serializable {
         this.rodada = rodada;
     }
 
+    public Fabrica getFabrica() {
+        return fabrica;
+    }
+
+    public void setFabrica(Fabrica fabrica) {
+        this.fabrica = fabrica;
+    }  */
+
+    public BigDecimal getCapitalInicial() {
+        return capitalInicial;
+    }
+
+    public void setCapitalInicial(BigDecimal capitalInicial) {
+        this.capitalInicial = capitalInicial;
+    }
+
+    public BigDecimal getCapitalAtual() {
+        return capitalAtual;
+    }
+
+    public void setCapitalAtual(BigDecimal capitalAtual) {
+        this.capitalAtual = capitalAtual;
+    } 
+
+    public BigDecimal getMargeLucro() {
+        return margeLucro;
+    }
+
+    public void setMargeLucro(BigDecimal margeLucro) {
+        this.margeLucro = margeLucro;
+    }
+    
+
     @Override
     public String toString() {
-        return "Empresa{" + "id=" + id + ", nomeFantasia=" + nomeFantasia + ", logomarca=" + logomarca + ", transportadora=" + transportadora + ", fornecedor=" + fornecedor + ", jogador=" + jogador + ", rodada=" + rodada + '}';
+        return id + "." + nomeFantasia;
     }
 
     @Override
